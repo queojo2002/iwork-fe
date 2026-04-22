@@ -1,5 +1,5 @@
-import React from 'react';
-import {Progress} from 'antd';
+import { Progress } from "antd";
+import React from "react";
 
 interface AppCircularProgressProps {
   percent?: number;
@@ -10,6 +10,6 @@ const AppCircularProgress: React.FC<AppCircularProgressProps> = ({
   percent,
   ...rest
 }) => {
-  return <Progress type='circle' percent={percent} {...rest} />;
+  return <Progress type="circle" percent={percent} {...rest} />;
 };
 export default AppCircularProgress;

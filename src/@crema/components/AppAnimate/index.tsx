@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 // import '../../../src/types/velocity-react.d';
 // import { VelocityComponent } from 'velocity-react';
 // import 'velocity-animate/velocity.ui';
