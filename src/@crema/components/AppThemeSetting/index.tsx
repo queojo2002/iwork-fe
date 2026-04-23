@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  layoutTypes,
-  navStyles,
-  sidebarColors,
-} from "@crema/mockapi/fakedb/navigationStyle";
+import { layoutTypes, navStyles, sidebarColors } from "@crema/mockapi/fakedb/navigationStyle";
 import clsx from "clsx";
 import IntlMessages from "@crema/helpers/IntlMessages";
 import { CheckOutlined } from "@ant-design/icons";
@@ -11,10 +7,7 @@ import { LayoutDirection, LayoutType } from "@crema/constants/AppEnums";
 import AppScrollbar from "../AppScrollbar";
 import { FiSettings } from "react-icons/fi";
 import { MdColorLens } from "react-icons/md";
-import {
-  useLayoutActionsContext,
-  useLayoutContext,
-} from "@crema/context/AppContextProvider/LayoutContextProvider";
+import { useLayoutActionsContext, useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
 import SidebarSettings from "./SidebarSettings";
 import ThemeColors from "./ThemeColors";
 import {
@@ -29,7 +22,7 @@ import {
   StyledCustomizeNavOptionItem,
   StyledCustomizeNavOptionRightIcon,
   StyledCustomizerButton,
-  StyledCustomizerOption,
+  StyledCustomizerOption
 } from "./index.styled";
 import AppGrid from "../AppGrid";
 import MenuColorCell from "./SidebarSettings/MenuColorCell";
@@ -44,11 +37,10 @@ const AppThemeSetting = () => {
     direction,
     // footerType,
     footer,
-    layoutType,
+    layoutType
   } = useLayoutContext();
 
-  const { setFooter, updateDirection, updateNavStyle, updateLayoutType } =
-    useLayoutActionsContext();
+  const { setFooter, updateDirection, updateNavStyle, updateLayoutType } = useLayoutActionsContext();
 
   const onLayoutChange = (layoutType: string) => {
     updateLayoutType(layoutType);
@@ -66,9 +58,7 @@ const AppThemeSetting = () => {
       <StyledCustomizerButton onClick={() => setCustomizerStatus(!open)}>
         <FiSettings className="ant-spin-dot-spin" style={{ fontSize: 20 }} />
       </StyledCustomizerButton>
-      <StyledCustomizerButton
-        onClick={() => setColorSettingOpen(!isColorSettingOpen)}
-      >
+      <StyledCustomizerButton onClick={() => setColorSettingOpen(!isColorSettingOpen)}>
         <MdColorLens style={{ fontSize: 20 }} />
       </StyledCustomizerButton>
       <StyledCustomizeDrawer
@@ -85,7 +75,7 @@ const AppThemeSetting = () => {
         }
         placement={direction === "ltr" ? "right" : "left"}
         className={clsx({
-          boxedDrawer: layoutType === LayoutType.BOXED,
+          boxedDrawer: layoutType === LayoutType.BOXED
         })}
         open={open}
         onClose={() => setCustomizerStatus(false)}
@@ -99,10 +89,7 @@ const AppThemeSetting = () => {
                 <h4>
                   <IntlMessages id="customizer.rtlSupport" />
                 </h4>
-                <StyledCustomizedSwitch
-                  checked={direction === LayoutDirection.RTL}
-                  onChange={onChangeRtlSetting}
-                />
+                <StyledCustomizedSwitch checked={direction === LayoutDirection.RTL} onChange={onChangeRtlSetting} />
               </StyledCustomizedSwitchView>
             </StyledCustomizedItem>
 
@@ -114,9 +101,7 @@ const AppThemeSetting = () => {
                 {navStyles.map((navLayout) => {
                   return (
                     <StyledCustomizeNavOptionItem key={navLayout.id}>
-                      <StyledCustomizeNavOptionContent
-                        onClick={() => onNavStyleChange(navLayout.alias)}
-                      >
+                      <StyledCustomizeNavOptionContent onClick={() => onNavStyleChange(navLayout.alias)}>
                         <img src={navLayout.image} alt="nav" />
                         {navStyle === navLayout.alias ? (
                           <StyledCustomizeNavOptionRightIcon>
@@ -138,14 +123,8 @@ const AppThemeSetting = () => {
                 {layoutTypes.map((layout) => {
                   return (
                     <StyledCustomizeNavOptionItem key={layout.id}>
-                      <StyledCustomizeNavOptionContent
-                        onClick={() => onLayoutChange(layout.alias)}
-                      >
-                        <img
-                          className="layout-img"
-                          src={layout.image}
-                          alt="nav"
-                        />
+                      <StyledCustomizeNavOptionContent onClick={() => onLayoutChange(layout.alias)}>
+                        <img className="layout-img" src={layout.image} alt="nav" />
                         {layoutType === layout.alias ? (
                           <StyledCustomizeNavOptionRightIcon>
                             <CheckOutlined />
@@ -161,10 +140,7 @@ const AppThemeSetting = () => {
             <StyledCustomizedItem>
               <StyledCustomizedSwitchView>
                 <h4>Footer</h4>
-                <StyledCustomizedSwitch
-                  checked={footer}
-                  onChange={(value) => setFooter(value)}
-                />
+                <StyledCustomizedSwitch checked={footer} onChange={(value) => setFooter(value)} />
               </StyledCustomizedSwitchView>
             </StyledCustomizedItem>
 
@@ -194,7 +170,7 @@ const AppThemeSetting = () => {
         }
         placement={direction === "ltr" ? "right" : "left"}
         className={clsx({
-          boxedDrawer: layoutType === LayoutType.BOXED,
+          boxedDrawer: layoutType === LayoutType.BOXED
         })}
         open={isColorSettingOpen}
         onClose={() => setColorSettingOpen(false)}
@@ -208,9 +184,7 @@ const AppThemeSetting = () => {
                 data={sidebarColors}
                 column={2}
                 itemPadding={5}
-                renderItem={(colorSet, index) => (
-                  <MenuColorCell key={index} sidebarColors={colorSet} />
-                )}
+                renderItem={(colorSet, index) => <MenuColorCell key={index} sidebarColors={colorSet} />}
               />
             </StyledCustomizedItem>
             <StyledCustomizedItem>

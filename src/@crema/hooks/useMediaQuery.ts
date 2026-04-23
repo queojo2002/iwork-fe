@@ -8,8 +8,7 @@ export const useMediaQuery = (query: any, whenTrue: any, whenFalse: any) => {
     mediaQuery.addListener(handler);
     return () => mediaQuery.removeListener(handler);
   }, []);
-  if (typeof window === "undefined" || typeof window.matchMedia === "undefined")
-    return whenFalse;
+  if (typeof window === "undefined" || typeof window.matchMedia === "undefined") return whenFalse;
 
   return match ? whenTrue : whenFalse;
 };

@@ -13,7 +13,7 @@ import {
   StyledBucketMinibarInner,
   StyledBucketMinibarLink,
   StyledBucketMinibarLogo,
-  StyledBucketMinibarSetting,
+  StyledBucketMinibarSetting
 } from "./index.styled";
 import { allowMultiLanguage } from "../../../constants/AppConst";
 const BucketMinibar = () => {
@@ -22,21 +22,17 @@ const BucketMinibar = () => {
   return (
     <StyledBucketMinibar
       className={clsx({
-        dark: themeMode === "dark",
+        dark: themeMode === "dark"
       })}
       style={{
         backgroundColor: sidebarColorSet.sidebarBgColor,
-        color: sidebarColorSet.sidebarTextColor,
+        color: sidebarColorSet.sidebarTextColor
       }}
     >
       <StyledBucketMinibarInner>
         <StyledBucketMinibarLogo onClick={(e) => e.preventDefault()}>
           <img
-            src={
-              sidebarColorSet.mode === "dark"
-                ? "/assets/images/logo-white.png"
-                : "/assets/images/logo.png"
-            }
+            src={sidebarColorSet.mode === "dark" ? "/assets/images/logo-white.png" : "/assets/images/logo.png"}
             alt="crema-logo"
           />
         </StyledBucketMinibarLogo>

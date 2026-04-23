@@ -1,7 +1,7 @@
-import React, {ReactNode} from 'react';
-import {Row} from 'antd';
-import {StyledAppRowContainer} from './index.styled';
-import AppAnimate from '../AppAnimate';
+import React, { ReactNode } from "react";
+import { Row } from "antd";
+import { StyledAppRowContainer } from "./index.styled";
+import AppAnimate from "../AppAnimate";
 
 type AppRowContainerProps = {
   children: ReactNode;
@@ -9,18 +9,11 @@ type AppRowContainerProps = {
   [x: string]: any;
 };
 
-const AppRowContainer: React.FC<AppRowContainerProps> = ({
-  children,
-  ...others
-}) => {
+const AppRowContainer: React.FC<AppRowContainerProps> = ({ children, ...others }) => {
   return (
     <StyledAppRowContainer>
       <AppAnimate>
-        <Row
-          style={{flexDirection: 'row'}}
-          gutter={{xs: 16, sm: 16, md: 32}}
-          {...others}
-        >
+        <Row style={{ flexDirection: "row" }} gutter={{ xs: 16, sm: 16, md: 32 }} {...others}>
           {children}
         </Row>
       </AppAnimate>

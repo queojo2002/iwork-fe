@@ -8,7 +8,7 @@ import {
   StyledErrorContainer,
   StyledErrorContent,
   StyledErrorImage,
-  StyledErrorPara,
+  StyledErrorPara
 } from "../index.styled";
 
 const Error403 = () => {

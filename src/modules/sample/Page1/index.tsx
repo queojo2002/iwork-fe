@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Page1 = () => {
   return (
     <>
       <h2>Sample page 1</h2>
-      <div style={{marginTop: 2}}>You can kick start your app</div>
+      <div style={{ marginTop: 2 }}>You can kick start your app</div>
     </>
   );
 };

@@ -12,23 +12,15 @@ export const getDateObject = (dateObject?: string | dayjs.Dayjs) => {
   return dayjs();
 };
 
-export const getFormattedDate = (
-  dateObject?: string | dayjs.Dayjs,
-  format = "MMM DD,YYYY",
-) => {
+export const getFormattedDate = (dateObject?: string | dayjs.Dayjs, format = "MMM DD,YYYY") => {
   if (dateObject) return dayjs(dateObject).format(format);
   return "";
 };
 
-export const getFormattedDateTime = (
-  value = 0,
-  unit = "days",
-  format = "MMM DD,YYYY",
-) => {
+export const getFormattedDateTime = (value = 0, unit = "days", format = "MMM DD,YYYY") => {
   if (value === 0) {
     return dayjs().format(format);
   } else {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return dayjs().add(value, unit).format(format);
   }

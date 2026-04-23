@@ -15,8 +15,7 @@ export const StyledIconBtn = styled(Button)`
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) =>
-      rgba(theme.palette.black, 0.05)} !important;
+    background-color: ${({ theme }) => rgba(theme.palette.black, 0.05)} !important;
     color: ${({ theme }) => theme.palette.text.primary};
   }
 
@@ -25,8 +24,7 @@ export const StyledIconBtn = styled(Button)`
 
     &:hover,
     &:focus {
-      background-color: ${({ theme }) =>
-        rgba(theme.palette.black, 0.05)} !important;
+      background-color: ${({ theme }) => rgba(theme.palette.black, 0.05)} !important;
       color: ${({ theme }) => theme.palette.primary.main};
     }
   }

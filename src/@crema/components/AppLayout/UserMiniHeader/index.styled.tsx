@@ -1,18 +1,18 @@
-import styled from 'styled-components';
-import AppScrollbar from '../../AppScrollbar';
-import {Input, Layout} from 'antd';
-import MainSidebar from '../components/MainSidebar';
+import styled from "styled-components";
+import AppScrollbar from "../../AppScrollbar";
+import { Input, Layout } from "antd";
+import MainSidebar from "../components/MainSidebar";
 
-const {Header} = Layout;
-const {Search} = Input;
+const { Header } = Layout;
+const { Search } = Input;
 
 export const StyledAppUserMinibar = styled(Header)`
   padding-left: 20px;
   padding-right: 20px;
-  color: ${({theme}) => theme.palette.text.primary} !important;
-  background-color: ${({theme}) => theme.palette.background.paper} !important;
+  color: ${({ theme }) => theme.palette.text.primary} !important;
+  background-color: ${({ theme }) => theme.palette.background.paper} !important;
   height: 56px;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor} !important;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor} !important;
   width: 100% !important;
   transition: all 0.1s linear;
   position: fixed;
@@ -22,18 +22,18 @@ export const StyledAppUserMinibar = styled(Header)`
   display: flex;
   align-items: center;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     right: auto;
     left: 0;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-left: 30px;
     padding-right: 30px;
     height: 71px !important;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     width: calc(100% - 17.5rem) !important;
   }
 
@@ -42,7 +42,7 @@ export const StyledAppUserMinibar = styled(Header)`
     margin-right: 20px;
     padding: 5.5px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 20px;
     }
@@ -51,19 +51,19 @@ export const StyledAppUserMinibar = styled(Header)`
   & .cr-user-info {
     background-color: transparent;
 
-    @media screen and (max-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
       padding-left: 5px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 0;
         padding-right: 5px;
       }
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
       padding-right: 0;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 0;
         padding-right: 16px;
       }
@@ -82,16 +82,16 @@ export const StyledUserMiniHeaderSearch = styled(Search)`
   margin-left: auto;
   margin-right: 10px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 10px;
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: auto;
       margin-left: 20px;
     }
@@ -104,7 +104,7 @@ export const StyledUserMiniHeaderSearch = styled(Search)`
     position: absolute;
     transform: translateY(-50%);
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       right: auto;
       left: 0;
     }
@@ -120,7 +120,7 @@ export const StyledUserMiniHeaderSearch = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -139,19 +139,15 @@ export const StyledUserMiniHeaderSearch = styled(Search)`
     }
   }
 
-  &.ant-input-search-rtl
-    > .ant-input-group
-    > .ant-input-group-addon:last-child
-    .ant-input-search-button {
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
-      ${({theme}) => theme.sizes.borderRadius.base};
+  &.ant-input-search-rtl > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button {
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0 ${({ theme }) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledUserMiniSectionDesktop = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -159,13 +155,13 @@ export const StyledUserMiniSectionDesktop = styled.div`
 export const StyledUserMiniSectionMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 
   & .ant-dropdown-link {
     font-size: 24px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
@@ -180,19 +176,19 @@ export const StyledUserMiniSidebar = styled(MainSidebar)`
     min-width: 0 !important;
     width: 17.5rem !important;
     transition: all 0.1s linear;
-    background-color: ${({theme}) => theme.sidebar.light.sidebarBgColor};
-    color: ${({theme}) => theme.palette.text.primary};
-    border-right: 1px solid ${({theme}) => theme.palette.borderColor};
+    background-color: ${({ theme }) => theme.sidebar.light.sidebarBgColor};
+    color: ${({ theme }) => theme.palette.text.primary};
+    border-right: 1px solid ${({ theme }) => theme.palette.borderColor};
     position: fixed;
     left: 0;
     top: 0;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       left: auto;
       right: 0;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 17.5rem !important;
     }
   }
@@ -206,7 +202,7 @@ export const StyledUserMiniSidebar = styled(MainSidebar)`
       margin-left: 4rem;
       transition: all 200ms linear;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-left: 0;
         margin-right: 4rem;
       }
@@ -248,7 +244,7 @@ export const StyledUserMiniSidebar = styled(MainSidebar)`
     position: relative;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -292,7 +288,7 @@ export const StyledAppLayoutMinibar = styled(Layout)`
   padding-top: 56px;
   background-color: transparent;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-top: 71px;
   }
 
@@ -314,17 +310,17 @@ export const StyledAppLayoutMinibarMain = styled(Layout)`
   width: 100% !important;
   margin-left: 0;
   position: relative;
-  background-color: ${({theme}) => theme.palette.background.default} !important;
+  background-color: ${({ theme }) => theme.palette.background.default} !important;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     width: calc(100% - 17.5rem) !important;
     margin-left: 17.5rem;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-left: 0;
       margin-right: 17.5rem;
     }
@@ -342,7 +338,7 @@ export const StyledUserMiniHeaderScrollbar = styled(AppScrollbar)`
     max-height: calc(100vh - 104px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     max-height: calc(100vh - 71px);
 
     .appMainFixedFooter & {

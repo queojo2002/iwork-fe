@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 const CLIENT_ID = import.meta.env.VITE_AUTH_CLIENT_ID as string;
 const SCOPE = import.meta.env.VITE_AUTH_SCOPE as string;
 
-const TOKEN_KEY = 'abp_access_token';
-const REFRESH_KEY = 'abp_refresh_token';
+const TOKEN_KEY = "abp_access_token";
+const REFRESH_KEY = "abp_refresh_token";
 
 export interface AbpTokenResponse {
   access_token: string;
@@ -19,25 +19,18 @@ export interface AbpTokenResponse {
  * Gọi POST /connect/token với grant_type=password
  * Trả về token response từ OpenIddict
  */
-export const connectToken = async (
-  username: string,
-  password: string,
-): Promise<AbpTokenResponse> => {
+export const connectToken = async (username: string, password: string): Promise<AbpTokenResponse> => {
   const params = new URLSearchParams({
-    grant_type: 'password',
+    grant_type: "password",
     client_id: CLIENT_ID,
     username,
     password,
-    scope: SCOPE,
+    scope: SCOPE
   });
 
-  const { data } = await axios.post<AbpTokenResponse>(
-    `${BASE_URL}/connect/token`,
-    params.toString(),
-    {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    },
-  );
+  const { data } = await axios.post<AbpTokenResponse>(`${BASE_URL}/connect/token`, params.toString(), {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+  });
 
   return data;
 };
@@ -45,22 +38,16 @@ export const connectToken = async (
 /**
  * Gọi POST /connect/token với grant_type=refresh_token
  */
-export const refreshToken = async (
-  token: string,
-): Promise<AbpTokenResponse> => {
+export const refreshToken = async (token: string): Promise<AbpTokenResponse> => {
   const params = new URLSearchParams({
-    grant_type: 'refresh_token',
+    grant_type: "refresh_token",
     client_id: CLIENT_ID,
-    refresh_token: token,
+    refresh_token: token
   });
 
-  const { data } = await axios.post<AbpTokenResponse>(
-    `${BASE_URL}/connect/token`,
-    params.toString(),
-    {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    },
-  );
+  const { data } = await axios.post<AbpTokenResponse>(`${BASE_URL}/connect/token`, params.toString(), {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+  });
 
   return data;
 };

@@ -22,32 +22,23 @@ const generateRoutes = (structure: any) => {
     anonymousStructure = {},
     authorizedStructure = {},
     publicStructure = {},
-    userRole = authRole.User,
+    userRole = authRole.User
   } = structure || {};
 
   const dynamicRoutes: RouteObject[] = [];
 
   if (anonymousStructure) {
-    dynamicRoutes.push(
-      ...routesGenerator(isAuthenticated, anonymousStructure, 'anonymous'),
-    );
+    dynamicRoutes.push(...routesGenerator(isAuthenticated, anonymousStructure, "anonymous"));
   }
 
   if (authorizedStructure) {
     dynamicRoutes.push(
-      ...routesGenerator(
-        isAuthenticated,
-        authorizedStructure,
-        'authorized',
-        isAuthenticated ? userRole : null,
-      ),
+      ...routesGenerator(isAuthenticated, authorizedStructure, "authorized", isAuthenticated ? userRole : null)
     );
   }
 
   if (publicStructure) {
-    dynamicRoutes.push(
-      ...routesGenerator(isAuthenticated, publicStructure, 'public'),
-    );
+    dynamicRoutes.push(...routesGenerator(isAuthenticated, publicStructure, "public"));
   }
   return dynamicRoutes;
 };
@@ -60,28 +51,23 @@ const generateRoutes = (structure: any) => {
  * redirectPath: String ----> To redirect to specific location
  * showRouteIf: to override when to show the component or when to [ Navigate ]
  */
-const routesGenerator = (
-  isAuthenticated = false,
-  routeSet: any = {},
-  type = 'anonymous',
-  userRole?: any,
-): any => {
+const routesGenerator = (isAuthenticated = false, routeSet: any = {}, type = "anonymous", userRole?: any): any => {
   const generatedRoutes: any[] = [];
-  const {fallbackPath = ''} = routeSet || {};
+  const { fallbackPath = "" } = routeSet || {};
 
-  const isAnonymous = type === 'anonymous';
-  const isAuthorized = type === 'authorized';
+  const isAnonymous = type === "anonymous";
+  const isAuthorized = type === "authorized";
 
   if (routeSet?.routes) {
     const routes = routeSet.routes;
     if (Array.isArray(routes) && routes.length > 0) {
       routes.forEach((route /*index*/) => {
         const {
-          path = '',
+          path = "",
           permittedRole = RoutePermittedRole.User,
           // routeProps = {},
-          redirectPath = '',
-          showRouteIf = true,
+          redirectPath = "",
+          showRouteIf = true
         } = route || {};
         // Show Route only [ in The list ] if this prop is true
         if (showRouteIf) {
@@ -89,16 +75,14 @@ const routesGenerator = (
           if (!path) {
             console.log(
               `A [route] is skipped because one of the following, No valid [path] prop provided for the route`,
-              isAuthenticated,
+              isAuthenticated
             );
           } else {
             if (isAnonymous) {
               return generatedRoutes.push(route);
             }
             if (isAuthorized) {
-              const renderCondition = isAuthorized
-                ? isAuthenticated
-                : !isAuthenticated;
+              const renderCondition = isAuthorized ? isAuthenticated : !isAuthenticated;
 
               if (Array.isArray(route.path)) {
                 route.path.map((path: string) => {
@@ -108,21 +92,16 @@ const routesGenerator = (
                         ? {
                             element: route.element,
                             path: path,
-                            permittedRole: route.permittedRole,
+                            permittedRole: route.permittedRole
                           }
                         : {
                             path: path,
-                            element: routeSet.unAuthorizedComponent,
+                            element: routeSet.unAuthorizedComponent
                           }
                       : {
                           path: path,
-                          element: (
-                            <Navigate
-                              to={redirectPath || fallbackPath}
-                              replace
-                            />
-                          ),
-                        },
+                          element: <Navigate to={redirectPath || fallbackPath} replace />
+                        }
                   );
                 });
               } else {
@@ -132,21 +111,17 @@ const routesGenerator = (
                       ? route
                       : {
                           path: route.path,
-                          element: routeSet.unAuthorizedComponent,
+                          element: routeSet.unAuthorizedComponent
                         }
                     : {
                         path: route.path,
-                        element: (
-                          <Navigate to={redirectPath || fallbackPath} replace />
-                        ),
-                      },
+                        element: <Navigate to={redirectPath || fallbackPath} replace />
+                      }
                 );
               }
               return generatedRoutes;
             }
-            const renderCondition = isAuthorized
-              ? isAuthenticated
-              : !isAuthenticated;
+            const renderCondition = isAuthorized ? isAuthenticated : !isAuthenticated;
             if (Array.isArray(route.path)) {
               route.path.map((path: string) => {
                 generatedRoutes.push(
@@ -154,14 +129,12 @@ const routesGenerator = (
                     ? {
                         element: route.element,
                         path: path,
-                        permittedRole: route.permittedRole,
+                        permittedRole: route.permittedRole
                       }
                     : {
                         path: path,
-                        element: (
-                          <Navigate to={redirectPath || fallbackPath} replace />
-                        ),
-                      },
+                        element: <Navigate to={redirectPath || fallbackPath} replace />
+                      }
                 );
               });
             } else {
@@ -170,10 +143,8 @@ const routesGenerator = (
                   ? route
                   : {
                       path: route.path,
-                      element: (
-                        <Navigate to={redirectPath || fallbackPath} replace />
-                      ),
-                    },
+                      element: <Navigate to={redirectPath || fallbackPath} replace />
+                    }
               );
             }
             return generatedRoutes;

@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
-import ListView from './ListView';
-import ListFooter from './ListFooter';
+import React, { ReactNode } from "react";
+import ListView from "./ListView";
+import ListFooter from "./ListFooter";
 
 type AppListProps = {
   border?: boolean;
@@ -21,17 +21,12 @@ type AppListProps = {
   [x: string]: any;
 };
 
-const AppList: React.FC<AppListProps> = ({footerProps, ...props}) => {
+const AppList: React.FC<AppListProps> = ({ footerProps, ...props }) => {
   return (
     <ListView
       {...props}
       ListFooterComponent={
-        footerProps ? (
-          <ListFooter
-            loading={footerProps.loading}
-            footerText={footerProps.footerText}
-          />
-        ) : null
+        footerProps ? <ListFooter loading={footerProps.loading} footerText={footerProps.footerText} /> : null
       }
     />
   );

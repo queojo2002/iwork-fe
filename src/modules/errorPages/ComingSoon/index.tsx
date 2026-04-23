@@ -10,7 +10,7 @@ import {
   StyledErrorForm,
   StyledErrorFormComing,
   StyledErrorImageLg,
-  StyledErrorPara,
+  StyledErrorPara
 } from "../index.styled";
 
 const ComingSoon = () => {
@@ -55,13 +55,9 @@ const ComingSoon = () => {
                 <Form.Item
                   name="email"
                   className="form-field"
-                  rules={[
-                    { required: true, message: "Please enter Email Address!" },
-                  ]}
+                  rules={[{ required: true, message: "Please enter Email Address!" }]}
                 >
-                  <Input
-                    placeholder={messages["common.emailAddress"] as string}
-                  />
+                  <Input placeholder={messages["common.emailAddress"] as string} />
                 </Form.Item>
 
                 <Button type="primary" className="error-btn" htmlType="submit">

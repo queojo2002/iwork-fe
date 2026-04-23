@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyledPagination} from './index.styled';
+import React from "react";
+import { StyledPagination } from "./index.styled";
 
 type AppsPaginationProps = {
   count: number;
@@ -12,23 +12,17 @@ type AppsPaginationProps = {
   [x: string]: any;
 };
 
-const itemRender=(_: any, type: any, originalElement: React.ReactNode)=> {
-  if (type === 'prev') {
+const itemRender = (_: any, type: any, originalElement: React.ReactNode) => {
+  if (type === "prev") {
     return <a>Previous Page</a>;
   }
-  if (type === 'next') {
+  if (type === "next") {
     return <a>Next Page</a>;
   }
   return originalElement;
-}
+};
 
-const AppsPagination: React.FC<AppsPaginationProps> = ({
-  count,
-  page,
-  onChange,
-  className = '',
-  pageSize = 15,
-}) => {
+const AppsPagination: React.FC<AppsPaginationProps> = ({ count, page, onChange, className = "", pageSize = 15 }) => {
   return (
     <StyledPagination
       total={count}

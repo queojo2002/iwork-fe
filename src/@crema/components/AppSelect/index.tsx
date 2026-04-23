@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyledAppSelect, StyledOption} from './index.styled';
+import React, { useState } from "react";
+import { StyledAppSelect, StyledOption } from "./index.styled";
 
 type AppSelectProps = {
   menus: any[];
@@ -8,12 +8,7 @@ type AppSelectProps = {
   selectionKey?: string;
 };
 
-const AppSelect: React.FC<AppSelectProps> = ({
-  menus = [],
-  onChange,
-  defaultValue = '',
-  selectionKey = '',
-}) => {
+const AppSelect: React.FC<AppSelectProps> = ({ menus = [], onChange, defaultValue = "", selectionKey = "" }) => {
   const [selectionType, setSelectionType] = useState(defaultValue);
 
   const handleSelectionType = (value: any) => {
@@ -22,16 +17,9 @@ const AppSelect: React.FC<AppSelectProps> = ({
   };
 
   return (
-    <StyledAppSelect
-      defaultValue={defaultValue}
-      value={selectionType}
-      onChange={handleSelectionType}
-    >
+    <StyledAppSelect defaultValue={defaultValue} value={selectionType} onChange={handleSelectionType}>
       {menus.map((menu, index) => (
-        <StyledOption
-          key={index}
-          value={selectionKey ? menu[selectionKey] : menu}
-        >
+        <StyledOption key={index} value={selectionKey ? menu[selectionKey] : menu}>
           {selectionKey ? menu[selectionKey] : menu}
         </StyledOption>
       ))}

@@ -1,5 +1,5 @@
-import {Avatar, List} from 'antd';
-import styled from 'styled-components';
+import { Avatar, List } from "antd";
+import styled from "styled-components";
 
 export const StyledNotifyListItem = styled(List.Item)`
   padding: 8px 20px !important;
@@ -12,15 +12,15 @@ export const StyledNotifyListItem = styled(List.Item)`
   & .ant-list-item-meta-avatar {
     margin-right: 12px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 12px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
       margin-right: 16px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-right: 0;
         margin-left: 16px;
       }
@@ -32,7 +32,7 @@ export const StyledNotifyListItem = styled(List.Item)`
   }
 
   & .ant-list-item-meta-description {
-    color: ${({theme}) => theme.palette.text.secondary} !important;
+    color: ${({ theme }) => theme.palette.text.secondary} !important;
   }
 `;
 

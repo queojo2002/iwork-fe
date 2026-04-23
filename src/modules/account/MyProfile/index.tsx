@@ -3,10 +3,7 @@ import { AiFillLock } from "react-icons/ai";
 import { FaBandcamp, FaNetworkWired } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import IntlMessages from "@crema/helpers/IntlMessages";
-import {
-  StyledUserProfileContainer,
-  StyledUserProfileTabs,
-} from "./index.styled";
+import { StyledUserProfileContainer, StyledUserProfileTabs } from "./index.styled";
 import AppAnimate from "@crema/components/AppAnimate";
 import { accountData } from "@crema/mockapi/fakedb";
 import PersonalInfo from "../../profile/UserProfile/PersonalInfo";
@@ -26,7 +23,7 @@ const items = [
       </span>
     ),
     key: "01",
-    children: <PersonalInfo />,
+    children: <PersonalInfo />
   }, // remember to pass the key prop
   {
     label: (
@@ -38,7 +35,7 @@ const items = [
       </span>
     ),
     key: "02",
-    children: <ChangePassword />,
+    children: <ChangePassword />
   },
   {
     label: (
@@ -50,7 +47,7 @@ const items = [
       </span>
     ),
     key: "03",
-    children: <Information />,
+    children: <Information />
   },
   {
     label: (
@@ -62,7 +59,7 @@ const items = [
       </span>
     ),
     key: "04",
-    children: <SocialLink socialLink={accountData.member} />,
+    children: <SocialLink socialLink={accountData.member} />
   },
   {
     label: (
@@ -74,20 +71,15 @@ const items = [
       </span>
     ),
     key: "05",
-    children: <Notification notification={accountData.notification} />,
-  },
+    children: <Notification notification={accountData.notification} />
+  }
 ];
 
 const UserProfile = () => {
   return (
     <StyledUserProfileContainer>
       <AppAnimate animation="transition.slideUpIn" delay={200}>
-        <StyledUserProfileTabs
-          key="1"
-          defaultActiveKey="01"
-          tabPosition="left"
-          items={items}
-        />
+        <StyledUserProfileTabs key="1" defaultActiveKey="01" tabPosition="left" items={items} />
       </AppAnimate>
     </StyledUserProfileContainer>
   );

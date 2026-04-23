@@ -18,16 +18,16 @@ import {
   StyledHeaderHorMainFlex,
   StyledHeaderHorMobile,
   StyledHeaderNavHor,
-  StyledHeaderSearchHor,
+  StyledHeaderSearchHor
 } from "./index.styled";
 import { StyledDropdownWrapper } from "../index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 import { allowMultiLanguage } from "../../../constants/AppConst";
 
 const items = [
-  {key: 1, label: <AppHeaderMessages />},
-  {key: 2, label: <AppNotifications />},
-  {key: 3, label: <AppLanguageSwitcher />},
+  { key: 1, label: <AppHeaderMessages /> },
+  { key: 2, label: <AppNotifications /> },
+  { key: 3, label: <AppLanguageSwitcher /> }
 ];
 
 type AppHeaderProps = {
@@ -35,9 +35,9 @@ type AppHeaderProps = {
   routesConfig: RouterConfigData[];
 };
 
-const AppHeader = ({showDrawer, routesConfig}: AppHeaderProps) => {
-  const {messages} = useIntl();
-  const {sidebarColorSet} = useSidebarContext();
+const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
+  const { messages } = useIntl();
+  const { sidebarColorSet } = useSidebarContext();
 
   return (
     <StyledAppHeaderHor>
@@ -46,13 +46,11 @@ const AppHeader = ({showDrawer, routesConfig}: AppHeaderProps) => {
       <StyledHeaderHorMain>
         <StyledContainer>
           <StyledHeaderHorMainFlex>
-            <a className='trigger' onClick={showDrawer}>
+            <a className="trigger" onClick={showDrawer}>
               <AiOutlineMenu />
             </a>
             <AppLogo />
-            <StyledHeaderSearchHor
-              placeholder={messages['common.searchHere'] as string}
-            />
+            <StyledHeaderSearchHor placeholder={messages["common.searchHere"] as string} />
 
             <StyledAppHeaderHorDesktop>
               {allowMultiLanguage && <AppLanguageSwitcher />}
@@ -63,15 +61,12 @@ const AppHeader = ({showDrawer, routesConfig}: AppHeaderProps) => {
             <StyledHeaderHorMobile>
               <StyledDropdownWrapper>
                 <Dropdown
-                  menu={{items}}
-                  overlayClassName='dropdown-wrapper'
+                  menu={{ items }}
+                  overlayClassName="dropdown-wrapper"
                   getPopupContainer={(triggerNode) => triggerNode}
-                  trigger={['click']}
+                  trigger={["click"]}
                 >
-                  <a
-                    className='ant-dropdown-link-mobile'
-                    onClick={(e) => e.preventDefault()}
-                  >
+                  <a className="ant-dropdown-link-mobile" onClick={(e) => e.preventDefault()}>
                     <FiMoreVertical />
                   </a>
                 </Dropdown>
@@ -84,7 +79,7 @@ const AppHeader = ({showDrawer, routesConfig}: AppHeaderProps) => {
       <StyledHeaderNavHor
         style={{
           backgroundColor: sidebarColorSet.sidebarBgColor,
-          color: sidebarColorSet.sidebarTextColor,
+          color: sidebarColorSet.sidebarTextColor
         }}
       >
         <StyledContainer>

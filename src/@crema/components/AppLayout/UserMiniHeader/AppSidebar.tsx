@@ -9,15 +9,15 @@ type Props = {
   routesConfig: RouterConfigData[];
 };
 
-const AppSidebar = ({routesConfig}: Props) => {
-  const {allowSidebarBgImage} = useSidebarContext();
+const AppSidebar = ({ routesConfig }: Props) => {
+  const { allowSidebarBgImage } = useSidebarContext();
 
   return (
     <StyledUserMiniSidebar
       className={clsx({
-        'userMiniHeader-sidebar-img-background': allowSidebarBgImage,
+        "userMiniHeader-sidebar-img-background": allowSidebarBgImage
       })}
-      breakpoint='lg'
+      breakpoint="lg"
       collapsed={collapseMotion}
     >
       <StyledAppScrollBarMini scrollToTop={false}>

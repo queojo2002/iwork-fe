@@ -1,37 +1,33 @@
-import React from 'react';
-import {Navigate} from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
-import {authRouteConfig} from "./AuthRoutes";
+import { initialUrl } from "@crema/constants/AppConst";
 import Error403 from "../../../modules/errorPages/Error403";
-import {errorPagesConfigs} from "./ErrorPagesRoutes";
-import {accountPagesConfigs} from "./AccountRoutes";
-import {initialUrl} from "@crema/constants/AppConst";
-import {samplePagesConfigs} from "./SamplePages.tsx";
+import { accountPagesConfigs } from "./AccountRoutes";
+import { authRouteConfig } from "./AuthRoutes";
+import { errorPagesConfigs } from "./ErrorPagesRoutes";
+import { samplePagesConfigs } from "./SamplePages.tsx";
 
 const authorizedStructure = {
-    fallbackPath: '/signin',
-    unAuthorizedComponent: <Error403/>,
-    routes: [
-        ...samplePagesConfigs,
-        ...accountPagesConfigs,
-    ],
+  fallbackPath: "/signin",
+  unAuthorizedComponent: <Error403 />,
+  routes: [...samplePagesConfigs, ...accountPagesConfigs]
 };
 
 const publicStructure = {
-    fallbackPath: initialUrl,
-    routes: authRouteConfig,
+  fallbackPath: initialUrl,
+  routes: authRouteConfig
 };
 const anonymousStructure = {
-    routes: errorPagesConfigs.concat([
-        {
-            path: '/',
-            element: <Navigate to={initialUrl}/>,
-        },
-        {
-            path: '*',
-            element: <Navigate to='/error-pages/error-404'/>,
-        },
-    ]),
+  routes: errorPagesConfigs.concat([
+    {
+      path: "/",
+      element: <Navigate to={initialUrl} />
+    },
+    {
+      path: "*",
+      element: <Navigate to="/error-pages/error-404" />
+    }
+  ])
 };
 
-export {authorizedStructure, publicStructure, anonymousStructure};
+export { anonymousStructure, authorizedStructure, publicStructure };

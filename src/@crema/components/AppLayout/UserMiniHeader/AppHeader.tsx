@@ -10,27 +10,25 @@ import {
   StyledAppUserMinibar,
   StyledUserMiniHeaderSearch,
   StyledUserMiniSectionDesktop,
-  StyledUserMiniSectionMobile,
+  StyledUserMiniSectionMobile
 } from "./index.styled";
 import { StyledDropdownWrapper } from "../index.styled";
 import { allowMultiLanguage } from "../../../constants/AppConst";
 
 const items = [
-  {key: 1, label: <AppHeaderMessages />},
-  {key: 2, label: <AppNotifications />},
-  {key: 3, label: <AppLanguageSwitcher />},
+  { key: 1, label: <AppHeaderMessages /> },
+  { key: 2, label: <AppNotifications /> },
+  { key: 3, label: <AppLanguageSwitcher /> }
 ];
 
 const AppHeader = () => {
-  const {messages} = useIntl();
+  const { messages } = useIntl();
 
   return (
-    <StyledAppUserMinibar className='app-userMiniHeader'>
+    <StyledAppUserMinibar className="app-userMiniHeader">
       <AppLogo />
 
-      <StyledUserMiniHeaderSearch
-        placeholder={messages['common.searchHere'] as string}
-      />
+      <StyledUserMiniHeaderSearch placeholder={messages["common.searchHere"] as string} />
       <StyledUserMiniSectionDesktop>
         {allowMultiLanguage && <AppLanguageSwitcher />}
         <AppHeaderMessages />
@@ -40,15 +38,12 @@ const AppHeader = () => {
       <StyledUserMiniSectionMobile>
         <StyledDropdownWrapper>
           <Dropdown
-            menu={{items}}
-            overlayClassName='dropdown-wrapper'
+            menu={{ items }}
+            overlayClassName="dropdown-wrapper"
             getPopupContainer={(triggerNode) => triggerNode}
-            trigger={['click']}
+            trigger={["click"]}
           >
-            <a
-              className='ant-dropdown-link-mobile'
-              onClick={(e) => e.preventDefault()}
-            >
+            <a className="ant-dropdown-link-mobile" onClick={(e) => e.preventDefault()}>
               <FiMoreVertical />
             </a>
           </Dropdown>

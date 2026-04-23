@@ -4,15 +4,8 @@ import AppContentView from "@crema/components/AppContentView";
 import generateRoutes from "@crema/helpers/RouteGenerator";
 import { Layouts } from "@crema/components/AppLayout";
 import { useAuthUser } from "@crema/hooks/AuthHooks";
-import {
-  useLayoutActionsContext,
-  useLayoutContext,
-} from "@crema/context/AppContextProvider/LayoutContextProvider";
-import {
-  anonymousStructure,
-  authorizedStructure,
-  publicStructure,
-} from "../AppRoutes";
+import { useLayoutActionsContext, useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
+import { anonymousStructure, authorizedStructure, publicStructure } from "../AppRoutes";
 import { useRoutes } from "react-router-dom";
 import routesConfig from "../AppRoutes/routeConfig";
 import AuthWrapper from "./AuthWrapper";
@@ -31,21 +24,14 @@ const AppLayout = () => {
     userRole: user?.role,
     publicStructure,
     authorizedStructure,
-    anonymousStructure,
+    anonymousStructure
   });
   const routes = useRoutes(generatedRoutes);
   useEffect(() => {
     if (params.layout) updateNavStyle(params.layout as string);
     if (params.menuStyle) updateMenuStyle(params.menuStyle as string);
     if (params.sidebarImage) setSidebarBgImage(true);
-  }, [
-    params.layout,
-    params.menuStyle,
-    params.sidebarImage,
-    updateNavStyle,
-    updateMenuStyle,
-    setSidebarBgImage,
-  ]);
+  }, [params.layout, params.menuStyle, params.sidebarImage, updateNavStyle, updateMenuStyle, setSidebarBgImage]);
 
   return (
     <>

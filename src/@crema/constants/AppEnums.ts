@@ -1,20 +1,20 @@
 export enum ThemeStyle {
   MODERN = "modern",
-  STANDARD = "standard",
+  STANDARD = "standard"
 }
 export enum ThemeStyleRadius {
   MODERN = "30px",
-  STANDARD = "16px",
+  STANDARD = "16px"
 }
 export enum ThemeMode {
   LIGHT = "light",
   SEMI_DARK = "semi-dark",
-  DARK = "dark",
+  DARK = "dark"
 }
 export enum LayoutType {
   FULL_WIDTH = "full-width",
   BOXED = "boxed",
-  FRAMED = "framed",
+  FRAMED = "framed"
 }
 
 export enum MenuStyle {
@@ -22,7 +22,7 @@ export enum MenuStyle {
   STANDARD = "standard",
   ROUNDED = "rounded",
   ROUNDED_REVERSE = "rounded-reverse",
-  CURVED_MENU = "curved-menu",
+  CURVED_MENU = "curved-menu"
 }
 
 export enum NavStyle {
@@ -36,19 +36,19 @@ export enum NavStyle {
   BIT_BUCKET = "bit-bucket",
   H_DEFAULT = "h-default",
   HOR_HEADER_FIXED = "hor-header-fixed",
-  HOR_DARK_LAYOUT = "hor-dark-layout",
+  HOR_DARK_LAYOUT = "hor-dark-layout"
 }
 export enum FooterType {
   FIXED = "fixed",
-  FLUID = "fluid",
+  FLUID = "fluid"
 }
 export enum LayoutDirection {
   RTL = "rtl",
-  LTR = "ltr",
+  LTR = "ltr"
 }
 export enum HeaderType {
   DARK = "dark",
-  LIGHT = "light",
+  LIGHT = "light"
 }
 export enum RouteTransition {
   NONE = "none",
@@ -56,20 +56,20 @@ export enum RouteTransition {
   SLIDE_LEFT = "slideLeft",
   SLIDE_RIGHT = "slideRight",
   SLIDE_UP = "slideUp",
-  SLIDE_DOWN = "slideDown",
+  SLIDE_DOWN = "slideDown"
 }
 export enum Fonts {
   LIGHT = "300",
   REGULAR = "400",
   MEDIUM = "500",
-  BOLD = "600",
+  BOLD = "600"
 }
 
 export enum AuthType {
   FIREBASE = "firebase",
   AWS_COGNITO = "aws_cognito",
   AUTH0 = "auth0",
-  JWT_AUTH = "jwt_auth",
+  JWT_AUTH = "jwt_auth"
 }
 
 export enum AppAnimates {
@@ -82,13 +82,13 @@ export enum AppAnimates {
   SLIDERIGHTIN = "transition.slideRightIn",
   SLIDERIGHTOUT = "transition.slideRightOut",
   FADEIN = "transition.fadeIn",
-  FADEOUT = "transition.fadeOut",
+  FADEOUT = "transition.fadeOut"
 }
 
 export const AppAnimateGroups = {
   SLIDEUPIN: {
     hidden: {
-      y: 0,
+      y: 0
     },
     visible: {
       opacity: 1,
@@ -98,13 +98,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.2,
-        staggerChildren: 0.05,
-      },
-    },
+        staggerChildren: 0.05
+      }
+    }
   },
   SLIDEUPOUT: {
     hidden: {
-      y: 0,
+      y: 0
     },
     visible: {
       opacity: 0,
@@ -114,14 +114,14 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDEDOWNIN: {
     hidden: {
       opacity: 0,
-      y: "-100vh",
+      y: "-100vh"
     },
     visible: {
       opacity: 1,
@@ -131,13 +131,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDEDOWNOUT: {
     hidden: {
-      y: 0,
+      y: 0
     },
     visible: {
       opacity: 0,
@@ -147,13 +147,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDELEFTIN: {
     hidden: {
-      x: "100vw",
+      x: "100vw"
     },
     visible: {
       opacity: 1,
@@ -163,13 +163,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDELEFTOUT: {
     hidden: {
-      x: 0,
+      x: 0
     },
     visible: {
       opacity: 0,
@@ -179,13 +179,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDERIGHTIN: {
     hidden: {
-      x: "-100vw",
+      x: "-100vw"
     },
     visible: {
       opacity: 1,
@@ -195,13 +195,13 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   SLIDERIGHTOUT: {
     hidden: {
-      x: 0,
+      x: 0
     },
     visible: {
       opacity: 0,
@@ -211,14 +211,14 @@ export const AppAnimateGroups = {
         delay: 0,
         when: "beforeChildren",
         duration: 0.4,
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   FADEIN: {
     hidden: {
       opacity: 0,
-      scale: 1,
+      scale: 1
     },
     visible: {
       opacity: 1,
@@ -226,14 +226,14 @@ export const AppAnimateGroups = {
       transition: {
         ease: "easeIn",
         when: "beforeChildren",
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   FADEOUT: {
     hidden: {
       opacity: 1,
-      scale: 1,
+      scale: 1
     },
     visible: {
       opacity: 0,
@@ -241,18 +241,18 @@ export const AppAnimateGroups = {
       transition: {
         ease: "easeOut",
         when: "beforeChildren",
-        staggerChildren: 0.15,
-      },
-    },
+        staggerChildren: 0.15
+      }
+    }
   },
   NOANIMATION: {
     hidden: {
-      opacity: 1,
+      opacity: 1
     },
     visible: {
-      opacity: 1,
-    },
-  },
+      opacity: 1
+    }
+  }
 };
 
 export const AppMotionAnimate = {
@@ -260,169 +260,169 @@ export const AppMotionAnimate = {
     variants: {
       hidden: {
         y: 100,
-        opacity: 0,
+        opacity: 0
       },
       visible: {
         opacity: 1,
-        y: 0,
-      },
+        y: 0
+      }
     },
     transition: {
       ease: "easeIn",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDEUPOUT: {
     variants: {
       hidden: {
         y: 0,
-        opacity: 1,
+        opacity: 1
       },
       visible: {
         opacity: 0,
-        y: "-100vh",
-      },
+        y: "-100vh"
+      }
     },
     transition: {
       ease: "easeOut",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDEDOWNIN: {
     variants: {
       hidden: {
         y: -100,
-        opacity: 0,
+        opacity: 0
       },
       visible: {
         opacity: 1,
-        y: 0,
-      },
+        y: 0
+      }
     },
     transition: {
       ease: "easeIn",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDEDOWNOUT: {
     variants: {
       hidden: {
         y: 0,
-        opacity: 1,
+        opacity: 1
       },
       visible: {
         opacity: 0,
-        y: "100vh",
-      },
+        y: "100vh"
+      }
     },
     transition: {
       ease: "easeOut",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDELEFTIN: {
     variants: {
       hidden: {
         x: 100,
-        opacity: 0,
+        opacity: 0
       },
       visible: {
         opacity: 1,
-        x: 0,
-      },
+        x: 0
+      }
     },
     transition: {
       ease: "easeIn",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDELEFTOUT: {
     variants: {
       hidden: {
         x: 0,
-        opacity: 1,
+        opacity: 1
       },
       visible: {
         opacity: 0,
-        x: "-100vw",
-      },
+        x: "-100vw"
+      }
     },
     transition: {
       ease: "easeOut",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDERIGHTIN: {
     variants: {
       hidden: {
         x: -100,
-        opacity: 0,
+        opacity: 0
       },
       visible: {
         opacity: 1,
-        x: 0,
-      },
+        x: 0
+      }
     },
     transition: {
       ease: "easeIn",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   SLIDERIGHTOUT: {
     variants: {
       hidden: {
         x: 0,
-        opacity: 1,
+        opacity: 1
       },
       visible: {
         opacity: 0,
-        x: "-100vw",
-      },
+        x: "-100vw"
+      }
     },
     transition: {
       ease: "easeOut",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   FADEIN: {
     variants: {
       hidden: {
-        opacity: 0,
+        opacity: 0
       },
       visible: {
-        opacity: 1,
-      },
+        opacity: 1
+      }
     },
     transition: {
       duration: 0.1,
       ease: "easeIn",
-      when: "beforeChildren",
-    },
+      when: "beforeChildren"
+    }
   },
   FADEOUT: {
     variants: {
       hidden: {
-        opacity: 1,
+        opacity: 1
       },
       visible: {
-        opacity: 0,
-      },
+        opacity: 0
+      }
     },
     transition: {
       duration: 0.1,
       ease: "easeOut",
-      when: "beforeChildren",
-    },
-  },
+      when: "beforeChildren"
+    }
+  }
 };
 
 export enum MessageType {
   MEDIA = 1,
-  TEXT = 2,
+  TEXT = 2
 }
 
 export enum RoutePermittedRole {
   Admin = "admin",
   User = "user",
-  All = "all",
+  All = "all"
 }

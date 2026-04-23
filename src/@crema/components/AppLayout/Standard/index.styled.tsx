@@ -1,17 +1,17 @@
-import AppScrollbar from '../../AppScrollbar';
-import {Input, Layout} from 'antd';
-import styled from 'styled-components';
-import MainSidebar from '../components/MainSidebar';
+import AppScrollbar from "../../AppScrollbar";
+import { Input, Layout } from "antd";
+import styled from "styled-components";
+import MainSidebar from "../components/MainSidebar";
 
-const {Header} = Layout;
-const {Search} = Input;
+const { Header } = Layout;
+const { Search } = Input;
 
 export const StyledAppStandardHeader = styled(Header)`
   padding-left: 20px;
   padding-right: 20px;
-  color: ${({theme}) => theme.palette.text.primary} !important;
-  background-color: ${({theme}) => theme.palette.background.paper} !important;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor} !important;
+  color: ${({ theme }) => theme.palette.text.primary} !important;
+  background-color: ${({ theme }) => theme.palette.background.paper} !important;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor} !important;
   height: 56px;
   line-height: 1;
   transition: all 0.1s linear;
@@ -23,7 +23,7 @@ export const StyledAppStandardHeader = styled(Header)`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     padding-left: 30px;
     padding-right: 30px;
     height: 71px !important;
@@ -33,18 +33,18 @@ export const StyledAppStandardHeader = styled(Header)`
     font-size: 20px;
     margin-right: 20px;
     padding: 5.5px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
     }
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 20px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
       display: none;
     }
   }
@@ -57,16 +57,16 @@ export const StyledStandardSearch = styled(Search)`
   margin-left: auto;
   margin-right: 10px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 10px;
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: auto;
       margin-left: 20px;
     }
@@ -79,7 +79,7 @@ export const StyledStandardSearch = styled(Search)`
     position: absolute;
     transform: translateY(-50%);
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       right: auto;
       left: 0;
     }
@@ -95,7 +95,7 @@ export const StyledStandardSearch = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -114,19 +114,15 @@ export const StyledStandardSearch = styled(Search)`
     }
   }
 
-  &.ant-input-search-rtl
-    > .ant-input-group
-    > .ant-input-group-addon:last-child
-    .ant-input-search-button {
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
-      ${({theme}) => theme.sizes.borderRadius.base};
+  &.ant-input-search-rtl > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button {
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0 ${({ theme }) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledStandardHeaderSecDesktop = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -134,13 +130,13 @@ export const StyledStandardHeaderSecDesktop = styled.div`
 export const StyledStandardHeaderSecMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 
   & .ant-dropdown-link {
     font-size: 24px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
@@ -156,7 +152,7 @@ export const StyledStandardSidebar = styled(MainSidebar)`
     width: 17.5rem !important;
     transition: all 0.1s linear;
 
-    border-right: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-right: 1px solid ${({ theme }) => theme.palette.borderColor};
     @media screen and (min-width: 1200px) and (max-width: 1300px) {
       width: 15rem !important;
     }
@@ -175,7 +171,7 @@ export const StyledStandardSidebar = styled(MainSidebar)`
     width: 0 !important;
     transition: all 200ms linear;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 4rem !important;
     }
 
@@ -183,7 +179,7 @@ export const StyledStandardSidebar = styled(MainSidebar)`
       width: 100% !important;
       transition: all 200ms linear;
 
-      @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+      @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
         width: calc(100% - 4rem) !important;
       }
     }
@@ -217,7 +213,7 @@ export const StyledStandardSidebar = styled(MainSidebar)`
     position: relative;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -254,7 +250,7 @@ export const StyledAppStandardScrollbar = styled(AppScrollbar)`
     height: calc(100vh - 158px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     height: calc(100vh - 140px);
 
     .appMainFixedFooter & {
@@ -289,10 +285,10 @@ export const StyledAppLayoutStandardMain = styled(Layout)`
   transition: all 0.1s linear;
   width: 100% !important;
   position: relative;
-  background-color: ${({theme}) => theme.palette.background.default} !important;
+  background-color: ${({ theme }) => theme.palette.background.default} !important;
   flex-shrink: 0;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     flex-shrink: inherit;
     width: calc(100% - 17.5rem) !important;
   }
@@ -314,7 +310,7 @@ export const StyledStandardScrollbar = styled(AppScrollbar)`
     max-height: calc(100vh - 104px);
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     max-height: calc(100vh - 71px);
 
     .appMainFixedFooter & {

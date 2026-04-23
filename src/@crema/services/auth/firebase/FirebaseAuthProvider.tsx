@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import {
   auth,
   createUserWithEmailAndPassword,
@@ -15,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   twitterAuthProvider,
-  updateProfile,
+  updateProfile
 } from "./firebase";
 import type { AuthUserType } from "@crema/types/models/AuthUser";
 
@@ -46,13 +40,13 @@ type FirebaseActionsProps = {
 const FirebaseContext = createContext<FirebaseContextProps>({
   user: null,
   isAuthenticated: false,
-  isLoading: true,
+  isLoading: true
 });
 const FirebaseActionsContext = createContext<FirebaseActionsProps>({
   registerUserWithEmailAndPassword: () => {},
   logInWithEmailAndPassword: () => {},
   logInWithPopup: () => {},
-  logout: () => {},
+  logout: () => {}
 });
 
 export const useFirebase = () => useContext(FirebaseContext);
@@ -70,12 +64,12 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
   children,
   fetchStart,
   fetchSuccess,
-  fetchError,
+  fetchError
 }) => {
   const [firebaseData, setFirebaseData] = useState<FirebaseContextProps>({
     user: undefined,
     isLoading: true,
-    isAuthenticated: false,
+    isAuthenticated: false
   });
 
   useEffect(() => {
@@ -85,7 +79,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         setFirebaseData({
           user: user as AuthUserType,
           isAuthenticated: Boolean(user),
-          isLoading: false,
+          isLoading: false
         });
         fetchSuccess();
       },
@@ -94,7 +88,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         setFirebaseData({
           user: firebaseData.user,
           isLoading: false,
-          isAuthenticated: false,
+          isAuthenticated: false
         });
       },
       () => {
@@ -102,9 +96,9 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         setFirebaseData({
           user: firebaseData.user,
           isLoading: false,
-          isAuthenticated: true,
+          isAuthenticated: true
         });
-      },
+      }
     );
 
     return () => {
@@ -114,16 +108,16 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
 
   const getProvider = (providerName: string) => {
     switch (providerName) {
-      case 'google': {
+      case "google": {
         return googleAuthProvider;
       }
-      case 'facebook': {
+      case "facebook": {
         return facebookAuthProvider;
       }
-      case 'twitter': {
+      case "twitter": {
         return twitterAuthProvider;
       }
-      case 'github': {
+      case "github": {
         return githubAuthProvider;
       }
       default:
@@ -134,91 +128,83 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
   const logInWithPopup = async (providerName: string) => {
     fetchStart();
     try {
-      const {user} = await signInWithPopup(auth, getProvider(providerName));
+      const { user } = await signInWithPopup(auth, getProvider(providerName));
       setFirebaseData({
         user: user as AuthUserType,
         isAuthenticated: true,
-        isLoading: false,
+        isLoading: false
       });
       fetchSuccess();
-    } catch ({message}: any) {
+    } catch ({ message }: any) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
-        isLoading: false,
+        isLoading: false
       });
       fetchError(message as string);
     }
   };
 
-  const logInWithEmailAndPassword = async ({email, password}: SignInProps) => {
+  const logInWithEmailAndPassword = async ({ email, password }: SignInProps) => {
     fetchStart();
     try {
-      const {user} = await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
       setFirebaseData({
         user: user as AuthUserType,
         isAuthenticated: true,
-        isLoading: false,
+        isLoading: false
       });
       fetchSuccess();
-    } catch ({message}: any) {
+    } catch ({ message }: any) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
-        isLoading: false,
+        isLoading: false
       });
       fetchError(message as string);
     }
   };
-  const registerUserWithEmailAndPassword = async ({
-    name,
-    email,
-    password,
-  }: SignUpProps) => {
+  const registerUserWithEmailAndPassword = async ({ name, email, password }: SignUpProps) => {
     fetchStart();
     try {
-      const {user} = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
       await sendEmailVerification(auth.currentUser!, {
         url: window.location.href,
-        handleCodeInApp: true,
+        handleCodeInApp: true
       });
       await updateProfile(auth.currentUser!, {
-        displayName: name,
+        displayName: name
       });
       setFirebaseData({
-        user: {...user, displayName: name} as AuthUserType,
+        user: { ...user, displayName: name } as AuthUserType,
         isAuthenticated: true,
-        isLoading: false,
+        isLoading: false
       });
       fetchSuccess();
-    } catch ({message}: any) {
+    } catch ({ message }: any) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
-        isLoading: false,
+        isLoading: false
       });
       fetchError(message as string);
     }
   };
 
   const logout = async () => {
-    setFirebaseData({...firebaseData, isLoading: true});
+    setFirebaseData({ ...firebaseData, isLoading: true });
     try {
       await auth.signOut();
       setFirebaseData({
         user: null,
         isLoading: false,
-        isAuthenticated: false,
+        isAuthenticated: false
       });
     } catch (error) {
       setFirebaseData({
         user: null,
         isLoading: false,
-        isAuthenticated: false,
+        isAuthenticated: false
       });
     }
   };
@@ -226,7 +212,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
   return (
     <FirebaseContext.Provider
       value={{
-        ...firebaseData,
+        ...firebaseData
       }}
     >
       <FirebaseActionsContext.Provider
@@ -234,7 +220,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
           logInWithEmailAndPassword,
           registerUserWithEmailAndPassword,
           logInWithPopup,
-          logout,
+          logout
         }}
       >
         {children}

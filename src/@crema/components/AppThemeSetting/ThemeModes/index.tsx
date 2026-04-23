@@ -1,13 +1,7 @@
 import IntlMessages from "@crema/helpers/IntlMessages";
-import {
-  StyledThemeColorSetting,
-  StyledThemeColorSettingTitle,
-} from "../ThemeColors/index.styled";
+import { StyledThemeColorSetting, StyledThemeColorSettingTitle } from "../ThemeColors/index.styled";
 import { ThemeMode } from "@crema/constants/AppEnums";
-import {
-  useThemeActionsContext,
-  useThemeContext,
-} from "@crema/context/AppContextProvider/ThemeContextProvider";
+import { useThemeActionsContext, useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
 import { useSidebarActionsContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import {
   backgroundDark,
@@ -16,7 +10,7 @@ import {
   LightSidebar,
   SidebarData,
   textDark,
-  textLight,
+  textLight
 } from "@crema/constants/defaultConfig";
 import clsx from "clsx";
 import styled from "styled-components";
@@ -45,18 +39,16 @@ const ThemeModes = () => {
           sidebarBgColor: LightSidebar.sidebarBgColor,
           sidebarTextColor: LightSidebar.sidebarTextColor,
           sidebarMenuSelectedBgColor: LightSidebar.sidebarMenuSelectedBgColor,
-          sidebarMenuSelectedTextColor:
-            LightSidebar.sidebarMenuSelectedTextColor,
-          sidebarHeaderColor: LightSidebar.sidebarHeaderColor,
+          sidebarMenuSelectedTextColor: LightSidebar.sidebarMenuSelectedTextColor,
+          sidebarHeaderColor: LightSidebar.sidebarHeaderColor
         } as SidebarData);
       } else {
         updateSidebarColorSet({
           sidebarBgColor: DarkSidebar.sidebarBgColor,
           sidebarTextColor: DarkSidebar.sidebarTextColor,
           sidebarMenuSelectedBgColor: DarkSidebar.sidebarMenuSelectedBgColor,
-          sidebarMenuSelectedTextColor:
-            DarkSidebar.sidebarMenuSelectedTextColor,
-          sidebarHeaderColor: DarkSidebar.sidebarHeaderColor,
+          sidebarMenuSelectedTextColor: DarkSidebar.sidebarMenuSelectedTextColor,
+          sidebarHeaderColor: DarkSidebar.sidebarHeaderColor
         } as SidebarData);
       }
       updateThemeMode(themeMode);
@@ -66,10 +58,9 @@ const ThemeModes = () => {
         palette: {
           ...theme.palette,
           mode: themeMode === ThemeMode.DARK ? ThemeMode.DARK : ThemeMode.LIGHT,
-          background:
-            themeMode === ThemeMode.DARK ? backgroundDark : backgroundLight,
-          text: themeMode === ThemeMode.DARK ? textDark : textLight,
-        },
+          background: themeMode === ThemeMode.DARK ? backgroundDark : backgroundLight,
+          text: themeMode === ThemeMode.DARK ? textDark : textLight
+        }
       });
     }
   };
@@ -80,16 +71,11 @@ const ThemeModes = () => {
         <IntlMessages id="customizer.themeMode" />
       </StyledThemeColorSettingTitle>
 
-      <ToggleButtonGroup
-        value={themeMode}
-        onChange={onModeChange}
-        aria-label="text alignment"
-        buttonStyle="solid"
-      >
+      <ToggleButtonGroup value={themeMode} onChange={onModeChange} aria-label="text alignment" buttonStyle="solid">
         <StyledToggleButton
           value={ThemeMode.LIGHT}
           className={clsx({
-            active: themeMode === ThemeMode.LIGHT,
+            active: themeMode === ThemeMode.LIGHT
           })}
           aria-label="left aligned"
         >
@@ -99,9 +85,7 @@ const ThemeModes = () => {
         <StyledToggleButton
           value={ThemeMode.DARK}
           className={clsx({
-            active:
-              themeMode === ThemeMode.DARK ||
-              theme.palette.type === ThemeMode.DARK,
+            active: themeMode === ThemeMode.DARK || theme.palette.type === ThemeMode.DARK
           })}
           aria-label="centered"
         >

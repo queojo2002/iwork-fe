@@ -6,10 +6,7 @@ interface AppCircularProgressProps {
   [x: string]: any;
 }
 
-const AppCircularProgress: React.FC<AppCircularProgressProps> = ({
-  percent,
-  ...rest
-}) => {
+const AppCircularProgress: React.FC<AppCircularProgressProps> = ({ percent, ...rest }) => {
   return <Progress type="circle" percent={percent} {...rest} />;
 };
 export default AppCircularProgress;

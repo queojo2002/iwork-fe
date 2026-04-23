@@ -9,7 +9,7 @@ import {
   StyledNotifyLink,
   StyledNotifyList,
   StyledNotifyScrollSubmenu,
-  StyledNotifyText,
+  StyledNotifyText
 } from "./index.styled";
 import { notification } from "@crema/mockapi/fakedb";
 
@@ -20,7 +20,7 @@ const items = [
       <span className="header">
         <IntlMessages id="common.notifications" />({notification.length})
       </span>
-    ),
+    )
   },
   {
     key: 2,
@@ -33,7 +33,7 @@ const items = [
           }}
         />
       </StyledNotifyScrollSubmenu>
-    ),
+    )
   },
   {
     key: 3,
@@ -41,8 +41,8 @@ const items = [
       <StyledNotifyButtonAll type="primary">
         <IntlMessages id="common.viewAll" />
       </StyledNotifyButtonAll>
-    ),
-  },
+    )
+  }
 ];
 const AppNotifications = () => {
   return (

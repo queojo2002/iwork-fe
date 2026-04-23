@@ -1,5 +1,5 @@
-import {ReactNode} from 'react';
-import {RoutePermittedRole} from '@crema/constants/AppEnums';
+import { ReactNode } from "react";
+import { RoutePermittedRole } from "@crema/constants/AppEnums";
 
 export type LanguageProps = {
   languageId: string;
@@ -27,7 +27,7 @@ export type RouterConfigData = {
   title: string;
   messageId: string;
   icon?: string | ReactNode;
-  type: 'item' | 'group' | 'collapse' | 'divider';
+  type: "item" | "group" | "collapse" | "divider";
   children?: RouterConfigData[];
   permittedRole?: RoutePermittedRole;
   color?: string;

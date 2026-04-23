@@ -1,5 +1,5 @@
 // Stub declarations for @auth0/auth0-spa-js (not installed, used only in legacy auth0Config)
-declare module '@auth0/auth0-spa-js' {
+declare module "@auth0/auth0-spa-js" {
   export interface Auth0ClientOptions {
     clientId: string;
     domain: string;
@@ -23,8 +23,8 @@ declare module '@auth0/auth0-spa-js' {
 }
 
 // Stub declarations for @auth0/auth0-react (not installed, used only in legacy AuthHooks / Auth0Provider)
-declare module '@auth0/auth0-react' {
-  import { ReactNode } from 'react';
+declare module "@auth0/auth0-react" {
+  import { ReactNode } from "react";
   export interface Auth0ProviderProps {
     domain: string;
     clientId: string;

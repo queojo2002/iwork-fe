@@ -1,5 +1,5 @@
-import {Avatar, Form} from 'antd';
-import styled from 'styled-components';
+import { Avatar, Form } from "antd";
+import styled from "styled-components";
 
 export const StyledInfoUpload = styled(Form.Item)`
   margin-bottom: 20px;
@@ -15,12 +15,12 @@ export const StyledInfoUploadAvatar = styled(Avatar)`
   width: 50px;
   height: 50px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 16px;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     width: 64px;
     height: 64px;
   }
@@ -28,8 +28,8 @@ export const StyledInfoUploadAvatar = styled(Avatar)`
 
 export const StyledInfoUploadContent = styled.div`
   flex: 1;
-  font-size: ${({theme}) => theme.font.size.sm};
-  color: ${({theme}) => theme.palette.text.secondary};
+  font-size: ${({ theme }) => theme.font.size.sm};
+  color: ${({ theme }) => theme.palette.text.secondary};
 
   & p {
     margin-bottom: 0;
@@ -44,7 +44,7 @@ export const StyledInfoUploadBtnView = styled.div`
   & .dropzone {
     margin-right: 10px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 10px;
     }

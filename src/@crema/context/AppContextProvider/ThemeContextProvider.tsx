@@ -1,11 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import defaultConfig, { defaultTheme } from "@crema/constants/defaultConfig";
 import { LayoutDirection } from "@crema/constants/AppEnums";
 
@@ -24,13 +17,13 @@ export interface ThemeActions {
 export const ThemeContext = createContext<ThemeData>({
   theme: defaultTheme.theme,
   themeMode: defaultConfig.themeMode,
-  themeStyle: defaultConfig.themeStyle,
+  themeStyle: defaultConfig.themeStyle
 });
 
 const ThemeActionsContext = createContext<ThemeActions>({
   updateTheme: () => {},
   updateThemeMode: () => {},
-  updateThemeStyle: () => {},
+  updateThemeStyle: () => {}
 });
 
 export const useThemeContext = () => useContext(ThemeContext);
@@ -40,16 +33,10 @@ type ThemeContextProviderProps = {
   children: ReactNode;
 };
 
-const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
-  children,
-}) => {
+const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<any>(defaultTheme.theme);
-  const [themeMode, updateThemeMode] = useState<string>(
-    defaultConfig.themeMode,
-  );
-  const [themeStyle, updateThemeStyle] = useState<string>(
-    defaultConfig.themeStyle,
-  );
+  const [themeMode, updateThemeMode] = useState<string>(defaultConfig.themeMode);
+  const [themeStyle, updateThemeStyle] = useState<string>(defaultConfig.themeStyle);
 
   const updateTheme = (theme: any) => {
     console.log("updateTheme th", theme);
@@ -81,14 +68,14 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
       value={{
         theme,
         themeStyle,
-        themeMode,
+        themeMode
       }}
     >
       <ThemeActionsContext.Provider
         value={{
           updateTheme,
           updateThemeStyle,
-          updateThemeMode,
+          updateThemeMode
         }}
       >
         {children}

@@ -1,6 +1,6 @@
-import React, {CSSProperties, ReactNode} from 'react';
-import GridView from './GridView';
-import GridFooter from './GridFooter';
+import React, { CSSProperties, ReactNode } from "react";
+import GridView from "./GridView";
+import GridFooter from "./GridFooter";
 
 type AppCardProps = {
   loading?: boolean;
@@ -19,17 +19,12 @@ type AppCardProps = {
   [x: string]: any;
 };
 
-const AppGrid: React.FC<AppCardProps> = ({footerProps, ...rest}) => {
+const AppGrid: React.FC<AppCardProps> = ({ footerProps, ...rest }) => {
   return (
     <GridView
       {...rest}
       ListFooterComponent={
-        footerProps ? (
-          <GridFooter
-            loading={footerProps.loading}
-            footerText={footerProps.footerText}
-          />
-        ) : null
+        footerProps ? <GridFooter loading={footerProps.loading} footerText={footerProps.footerText} /> : null
       }
     />
   );

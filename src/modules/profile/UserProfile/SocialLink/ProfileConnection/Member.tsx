@@ -1,20 +1,20 @@
-import React, {useState} from 'react';
-import {Avatar, Button} from 'antd';
+import React, { useState } from "react";
+import { Avatar, Button } from "antd";
 import {
   StyledDisconnectBtn,
   StyledMemberCard,
   StyledMemberCardTitle,
   StyledMemberInfo,
   StyledMemberInfoContent,
-  StyledMemberThumb,
-} from './index.styled';
-import {MemberDataType} from '@crema/types/models/account';
+  StyledMemberThumb
+} from "./index.styled";
+import { MemberDataType } from "@crema/types/models/account";
 
 type MemberProps = {
   member: MemberDataType;
 };
 
-const Member: React.FC<MemberProps> = ({member}) => {
+const Member: React.FC<MemberProps> = ({ member }) => {
   const [connect, setConnect] = useState(false);
 
   const onConnect = () => {
@@ -31,7 +31,7 @@ const Member: React.FC<MemberProps> = ({member}) => {
       {connect ? (
         <StyledMemberInfo>
           <StyledMemberInfoContent>
-            <Button type='primary' ghost onClick={onConnect}>
+            <Button type="primary" ghost onClick={onConnect}>
               Connect
             </Button>
           </StyledMemberInfoContent>
@@ -43,9 +43,7 @@ const Member: React.FC<MemberProps> = ({member}) => {
           </StyledMemberThumb>
           <StyledMemberInfoContent>
             <h5>{member.title}</h5>
-            <StyledDisconnectBtn onClick={onDisconnect}>
-              Disconnect
-            </StyledDisconnectBtn>
+            <StyledDisconnectBtn onClick={onDisconnect}>Disconnect</StyledDisconnectBtn>
           </StyledMemberInfoContent>
         </StyledMemberInfo>
       )}

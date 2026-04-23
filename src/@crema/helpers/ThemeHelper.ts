@@ -1,6 +1,6 @@
 export const getAntTheme = (theme: any) => {
   return {
-    colorPrimary: theme.palette.primary.main,
+    colorPrimary: theme.palette.primary.main
     // colorTextBase: theme.palette.text.primary,
     // fontFamilyBase: theme.font.family,
     // fontSizeBase: theme.font.size.base,

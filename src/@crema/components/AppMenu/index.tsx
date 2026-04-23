@@ -9,10 +9,7 @@ const AppMenu = () => {
 
   return (
     <Dropdown menu={{ items }} trigger={["click"]}>
-      <a
-        className="ant-dropdown-link cr-dropdown-link"
-        onClick={(e) => e.preventDefault()}
-      >
+      <a className="ant-dropdown-link cr-dropdown-link" onClick={(e) => e.preventDefault()}>
         <FiMoreVertical />
       </a>
     </Dropdown>

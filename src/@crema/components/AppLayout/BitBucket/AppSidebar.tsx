@@ -13,7 +13,7 @@ import {
   StyledAppBitbucketScrollbar,
   StyledAppBitbucketDrawer,
   StyledAppBitbucketSidebarWrapper,
-  StyledBitbucketBtn,
+  StyledBitbucketBtn
 } from "./index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 
@@ -41,7 +41,7 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
     return (
       <StyledAppBitbucketSidebar
         className={clsx("app-BitBucket-sidebar", {
-          "bitBucket-sidebar-img-background": allowSidebarBgImage,
+          "bitBucket-sidebar-img-background": allowSidebarBgImage
         })}
         collapsible
       >
@@ -68,7 +68,7 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
       </StyledAppBitbucketDrawer>
       <StyledAppBitbucketSidebarWrapper
         className={clsx("app-BitBucket-sidebar-wrapper", {
-          "app-BitBucket-sidebar-wrapper-close": isSidebarClosed,
+          "app-BitBucket-sidebar-wrapper-close": isSidebarClosed
         })}
       >
         <BucketMinibar />

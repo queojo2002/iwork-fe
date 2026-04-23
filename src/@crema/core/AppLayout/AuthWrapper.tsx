@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyledAuth,
   StyledAuthCard,
@@ -7,28 +7,28 @@ import {
   StyledAuthWelContent,
   StyledAuthWellAction,
   StyledAuthWrap,
-  StyledMainAuthScrollbar,
-} from './AuthWrapper.styled';
-import AppLogo from '@crema/components/AppLayout/components/AppLogo';
-import AppAnimateGroup from '@crema/components/AppAnimateGroup';
-import AppInfoView from '@crema/components/AppInfoView';
+  StyledMainAuthScrollbar
+} from "./AuthWrapper.styled";
+import AppLogo from "@crema/components/AppLayout/components/AppLogo";
+import AppAnimateGroup from "@crema/components/AppAnimateGroup";
+import AppInfoView from "@crema/components/AppInfoView";
 
 type Props = {
   children: React.ReactNode;
 };
-const AuthWrapper: React.FC<Props> = ({children}) => {
+const AuthWrapper: React.FC<Props> = ({ children }) => {
   return (
     <StyledAuth>
       <StyledMainAuthScrollbar>
         <AppAnimateGroup
-          type='scale'
-          animateStyle={{flex: 1}}
+          type="scale"
+          animateStyle={{ flex: 1 }}
           delay={0}
-          style={{height: '100%'}}
+          style={{ height: "100%" }}
           interval={10}
           duration={200}
         >
-          <StyledAuthWrap key={'wrap'}>
+          <StyledAuthWrap key={"wrap"}>
             <StyledAuthCard>
               <StyledAuthMainContent>
                 <StyledAuthCardHeader>
@@ -39,10 +39,7 @@ const AuthWrapper: React.FC<Props> = ({children}) => {
               <StyledAuthWellAction>
                 <StyledAuthWelContent>
                   <h2>Welcome to Crema!</h2>
-                  <p>
-                    Crema is purely based on Ant Design components and follows
-                    Ant Design guidelines.
-                  </p>
+                  <p>Crema is purely based on Ant Design components and follows Ant Design guidelines.</p>
                 </StyledAuthWelContent>
               </StyledAuthWellAction>
             </StyledAuthCard>

@@ -1,12 +1,7 @@
-import abpClient from '../abpClient';
-import type {
-  BookDto,
-  CreateUpdateBookDto,
-  PagedResultDto,
-  PagedAndSortedRequestDto,
-} from './types';
+import abpClient from "../abpClient";
+import type { BookDto, CreateUpdateBookDto, PagedResultDto, PagedAndSortedRequestDto } from "./types";
 
-const BASE = '/api/app/book';
+const BASE = "/api/app/book";
 
 /**
  * ABP BookAppService API — ánh xạ tới auto-generated REST endpoints:
@@ -18,19 +13,14 @@ const BASE = '/api/app/book';
  */
 export const bookApi = {
   getList: (params?: PagedAndSortedRequestDto) =>
-    abpClient
-      .get<PagedResultDto<BookDto>>(BASE, { params })
-      .then((res) => res.data),
+    abpClient.get<PagedResultDto<BookDto>>(BASE, { params }).then((res) => res.data),
 
-  get: (id: string) =>
-    abpClient.get<BookDto>(`${BASE}/${id}`).then((res) => res.data),
+  get: (id: string) => abpClient.get<BookDto>(`${BASE}/${id}`).then((res) => res.data),
 
-  create: (data: CreateUpdateBookDto) =>
-    abpClient.post<BookDto>(BASE, data).then((res) => res.data),
+  create: (data: CreateUpdateBookDto) => abpClient.post<BookDto>(BASE, data).then((res) => res.data),
 
   update: (id: string, data: CreateUpdateBookDto) =>
     abpClient.put<BookDto>(`${BASE}/${id}`, data).then((res) => res.data),
 
-  delete: (id: string) =>
-    abpClient.delete(`${BASE}/${id}`).then((res) => res.data),
+  delete: (id: string) => abpClient.delete(`${BASE}/${id}`).then((res) => res.data)
 };

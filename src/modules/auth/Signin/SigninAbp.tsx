@@ -1,7 +1,8 @@
-import { Form, Input } from 'antd';
-import { useIntl } from 'react-intl';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import { useAuthMethod } from '@crema/hooks/AuthHooks';
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { useAuthMethod } from "@crema/hooks/AuthHooks";
+import { Form, Input } from "antd";
+import { useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 import {
   SignInButton,
   StyledRememberMe,
@@ -11,8 +12,7 @@ import {
   StyledSignLink,
   StyledSignLinkTag,
   StyledSignTextGrey,
-} from './index.styled';
-import { useNavigate } from 'react-router-dom';
+} from "./index.styled";
 
 const SigninAbp = () => {
   const navigate = useNavigate();
@@ -20,11 +20,11 @@ const SigninAbp = () => {
   const { messages } = useIntl();
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
 
   const onGoToForgetPassword = () => {
-    navigate('/forget-password');
+    navigate("/forget-password");
   };
 
   return (
@@ -34,22 +34,27 @@ const SigninAbp = () => {
           name="abp-signin"
           initialValues={{
             remember: true,
-            email: 'admin',
-            password: '1q2w3E*',
+            email: "admin",
+            password: "1q2w3E*",
           }}
           onFinish={(values: any) =>
-            logInWithEmailAndPassword({ email: values.email, password: values.password })
+            logInWithEmailAndPassword({
+              email: values.email,
+              password: values.password,
+            })
           }
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
             name="email"
             className="form-field"
-            rules={[{ required: true, message: 'Vui lòng nhập tên đăng nhập!' }]}
+            rules={[
+              { required: true, message: "Vui lòng nhập tên đăng nhập!" },
+            ]}
           >
             <Input
               id="abp-signin-username"
-              placeholder={messages['common.email'] as string}
+              placeholder={messages["common.email"] as string}
               autoComplete="username"
             />
           </Form.Item>
@@ -57,11 +62,11 @@ const SigninAbp = () => {
           <Form.Item
             name="password"
             className="form-field"
-            rules={[{ required: true, message: 'Vui lòng nhập mật khẩu!' }]}
+            rules={[{ required: true, message: "Vui lòng nhập mật khẩu!" }]}
           >
             <Input.Password
               id="abp-signin-password"
-              placeholder={messages['common.password'] as string}
+              placeholder={messages["common.password"] as string}
               autoComplete="current-password"
             />
           </Form.Item>

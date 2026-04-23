@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 export const useAsync = (fn: any) => {
-  const initialState = {loading: false, error: null, value: null};
+  const initialState = { loading: false, error: null, value: null };
   const stateReducer = (_: any, action: any) => {
     switch (action.type) {
-      case 'start':
-        return {loading: true, error: null, value: null};
-      case 'finish':
-        return {loading: false, error: null, value: action.value};
-      case 'error':
-        return {loading: false, error: action.error, value: null};
+      case "start":
+        return { loading: true, error: null, value: null };
+      case "finish":
+        return { loading: false, error: null, value: action.value };
+      case "error":
+        return { loading: false, error: action.error, value: null };
     }
   };
 
@@ -17,13 +17,13 @@ export const useAsync = (fn: any) => {
 
   const run = async (args = null) => {
     try {
-      dispatch({type: 'start'});
+      dispatch({ type: "start" });
       const value = await fn(args);
-      dispatch({type: 'finish', value});
+      dispatch({ type: "finish", value });
     } catch (error) {
-      dispatch({type: 'error', error});
+      dispatch({ type: "error", error });
     }
   };
 
-  return {...state, run};
+  return { ...state, run };
 };

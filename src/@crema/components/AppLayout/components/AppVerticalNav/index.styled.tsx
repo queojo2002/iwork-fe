@@ -2,7 +2,7 @@ import { Menu } from "antd";
 import styled from "styled-components";
 
 export const StyledVerticalNav = styled(Menu).withConfig({
-  shouldForwardProp: (prop) => prop !== 'bgcolor',
+  shouldForwardProp: (prop) => prop !== "bgcolor"
 })`
   padding-top: 8px;
   padding-bottom: 8px;
@@ -78,10 +78,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
   }
 
   & .ant-menu-sub.ant-menu-inline > .ant-menu-item,
-  &
-    .ant-menu-sub.ant-menu-inline
-    > .ant-menu-submenu
-    > .ant-menu-submenu-title {
+  & .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
     padding-left: 68px !important;
 
     [dir="rtl"] & {
@@ -166,11 +163,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
     }
 
     & > .ant-menu-item .ant-menu-item-icon,
-    &
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-item
-      .ant-menu-item-icon,
+    & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon,
     &
       > .ant-menu-item-group
       > .ant-menu-item-group-list
@@ -179,17 +172,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
       .ant-menu-item-icon,
     & > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-item-icon,
     & > .ant-menu-item .anticon,
-    &
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-item
-      .anticon,
-    &
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-submenu
-      > .ant-menu-submenu-title
-      .anticon,
+    & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon,
+    & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
     & > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
       font-size: 20px;
     }
@@ -225,14 +209,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
     }
 
     &.ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow,
-    &.ant-menu.ant-menu-dark
-      .ant-menu-sub
-      .ant-menu-submenu-title
-      .ant-menu-submenu-arrow,
-    &.ant-menu.ant-menu-dark
-      .ant-menu-sub
-      .ant-menu-submenu-title
-      .ant-menu-submenu-arrow {
+    &.ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow,
+    &.ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow {
       opacity: 1;
       color: inherit;
     }
@@ -274,14 +252,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
       }
     }
 
-    &
-      .ant-menu-submenu:hover
-      > .ant-menu-submenu-title
-      > .ant-menu-submenu-expand-icon,
-    &
-      .ant-menu-submenu:hover
-      > .ant-menu-submenu-title
-      > .ant-menu-submenu-arrow {
+    & .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon,
+    & .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
       color: inherit;
     }
 
@@ -365,22 +337,10 @@ export const StyledVerticalNav = styled(Menu).withConfig({
         }
       }
 
-      &
-        .ant-menu-submenu-open
-        > .ant-menu-submenu-title
-        > .ant-menu-submenu-expand-icon,
-      &
-        .ant-menu-submenu-open
-        > .ant-menu-submenu-title
-        > .ant-menu-submenu-arrow,
-      &
-        .ant-menu-submenu
-        > .ant-menu-submenu-title:hover
-        > .ant-menu-submenu-expand-icon,
-      &
-        .ant-menu-submenu
-        > .ant-menu-submenu-title:hover
-        > .ant-menu-submenu-arrow {
+      & .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon,
+      & .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
+      & .ant-menu-submenu > .ant-menu-submenu-title:hover > .ant-menu-submenu-expand-icon,
+      & .ant-menu-submenu > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow {
         color: inherit;
       }
 
@@ -485,11 +445,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
       }
 
       & > .ant-menu-item .ant-menu-item-icon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .ant-menu-item-icon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon,
       &
         > .ant-menu-item-group
         > .ant-menu-item-group-list
@@ -498,17 +454,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
         .ant-menu-item-icon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-item-icon,
       & > .ant-menu-item .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-submenu
-        > .ant-menu-submenu-title
-        .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
         font-size: 20px;
       }
@@ -534,10 +481,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
     }
 
     & .ant-menu-sub.ant-menu-inline > .ant-menu-item,
-    &
-      .ant-menu-sub.ant-menu-inline
-      > .ant-menu-submenu
-      > .ant-menu-submenu-title {
+    & .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
       padding-left: 50px !important;
 
       [dir="rtl"] & {
@@ -584,11 +528,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
       }
 
       & > .ant-menu-item .ant-menu-item-icon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .ant-menu-item-icon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon,
       &
         > .ant-menu-item-group
         > .ant-menu-item-group-list
@@ -597,17 +537,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
         .ant-menu-item-icon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-item-icon,
       & > .ant-menu-item .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-submenu
-        > .ant-menu-submenu-title
-        .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
         font-size: 20px;
       }
@@ -633,9 +564,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
     }
 
     & .ant-menu-sub.ant-menu-inline > .ant-menu-item,
-    &.ant-menu-sub.ant-menu-inline
-      > .ant-menu-submenu
-      > .ant-menu-submenu-title {
+    &.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
       padding-left: 60px !important;
 
       [dir="rtl"] & {
@@ -682,11 +611,7 @@ export const StyledVerticalNav = styled(Menu).withConfig({
       }
 
       & > .ant-menu-item .ant-menu-item-icon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .ant-menu-item-icon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon,
       &
         > .ant-menu-item-group
         > .ant-menu-item-group-list
@@ -695,17 +620,8 @@ export const StyledVerticalNav = styled(Menu).withConfig({
         .ant-menu-item-icon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-item-icon,
       & > .ant-menu-item .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-item
-        .anticon,
-      &
-        > .ant-menu-item-group
-        > .ant-menu-item-group-list
-        > .ant-menu-submenu
-        > .ant-menu-submenu-title
-        .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon,
+      & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
       & > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
         font-size: 20px;
       }

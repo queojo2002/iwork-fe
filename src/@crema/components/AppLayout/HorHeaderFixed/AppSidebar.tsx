@@ -6,11 +6,7 @@ import AppVerticalMenu from "../components/AppVerticalNav";
 import { LayoutDirection } from "@crema/constants/AppEnums";
 import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
-import {
-  StyledAppHeaderDrawerFixed,
-  StyledAppHorHeaderFixedSidebar,
-  StyledAppHorScrollbar,
-} from "./index.styled";
+import { StyledAppHeaderDrawerFixed, StyledAppHorHeaderFixedSidebar, StyledAppHorScrollbar } from "./index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 
 type AppSidebarProps = {
@@ -37,7 +33,7 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
     >
       <StyledAppHorHeaderFixedSidebar
         className={clsx({
-          "hor-header-fixed-sidebar-img-background": allowSidebarBgImage,
+          "hor-header-fixed-sidebar-img-background": allowSidebarBgImage
         })}
         collapsible
       >

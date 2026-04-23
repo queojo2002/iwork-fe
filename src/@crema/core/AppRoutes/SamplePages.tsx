@@ -8,11 +8,11 @@ export const samplePagesConfigs = [
   {
     permittedRole: RoutePermittedRole.All,
     path: "/sample/page-1",
-    element: <Page1 />,
+    element: <Page1 />
   },
   {
     permittedRole: RoutePermittedRole.User,
     path: "/sample/page-2",
-    element: <Page2 />,
-  },
+    element: <Page2 />
+  }
 ];

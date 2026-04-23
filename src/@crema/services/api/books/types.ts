@@ -1,4 +1,4 @@
-import { BookType } from './bookType';
+import { BookType } from "./bookType";
 
 /**
  * Tương ứng với BookDto.cs trong BE (kế thừa AuditedEntityDto<Guid>)

@@ -3,24 +3,21 @@ import UserInfo from "../components/UserInfo";
 import clsx from "clsx";
 import AppVerticalMenu from "../components/AppVerticalNav";
 import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
-import {
-  StyledAppSidebarMiniScrollbar,
-  StyledMiniSidebar,
-} from "./index.styled";
+import { StyledAppSidebarMiniScrollbar, StyledMiniSidebar } from "./index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 
 type AppSidebarProps = {
   routesConfig: RouterConfigData[];
 };
 
-const AppSidebar = ({routesConfig}: AppSidebarProps) => {
-  const {allowSidebarBgImage} = useSidebarContext();
+const AppSidebar = ({ routesConfig }: AppSidebarProps) => {
+  const { allowSidebarBgImage } = useSidebarContext();
 
   return (
     <StyledMiniSidebar
-      breakpoint='lg'
+      breakpoint="lg"
       className={clsx({
-        'mini-sidebar-img-background': allowSidebarBgImage,
+        "mini-sidebar-img-background": allowSidebarBgImage
       })}
       collapsed={collapseMotion}
     >

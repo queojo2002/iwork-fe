@@ -9,7 +9,7 @@ import {
   StyledHeaderMsgBtn,
   StyledHeaderMsgIcon,
   StyledHeaderMsgLink,
-  StyledHeaderMsgLinkText,
+  StyledHeaderMsgLinkText
 } from "./index.styled";
 import { messages } from "@crema/mockapi/fakedb";
 
@@ -20,7 +20,7 @@ const items = [
       <div className="header">
         <IntlMessages id="dashboard.messages" />({messages.length})
       </div>
-    ),
+    )
   },
   {
     key: 2,
@@ -33,7 +33,7 @@ const items = [
           }}
         />
       </StyledAppScrollbar>
-    ),
+    )
   },
   {
     key: 3,
@@ -41,8 +41,8 @@ const items = [
       <StyledHeaderMsgBtn type="primary">
         <IntlMessages id="common.viewAll" />
       </StyledHeaderMsgBtn>
-    ),
-  },
+    )
+  }
 ];
 const AppHeaderMessages = () => {
   return (

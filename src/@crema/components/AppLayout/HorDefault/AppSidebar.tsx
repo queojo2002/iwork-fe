@@ -7,11 +7,7 @@ import AppVerticalMenu from "../components/AppVerticalNav";
 import { LayoutDirection } from "@crema/constants/AppEnums";
 import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
-import {
-  StyledAppHorDrawer,
-  StyledAppSidebarHorScrollbar,
-  StyledHorMainSidebar,
-} from "./index.styled";
+import { StyledAppHorDrawer, StyledAppSidebarHorScrollbar, StyledHorMainSidebar } from "./index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 
 type AppSidebarProps = {
@@ -38,7 +34,7 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
     >
       <StyledHorMainSidebar
         className={clsx({
-          "hor-sidebar-img-background": allowSidebarBgImage,
+          "hor-sidebar-img-background": allowSidebarBgImage
         })}
         collapsible
       >
@@ -55,5 +51,5 @@ export default AppSidebar;
 
 AppSidebar.propTypes = {
   visible: PropTypes.bool,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 };

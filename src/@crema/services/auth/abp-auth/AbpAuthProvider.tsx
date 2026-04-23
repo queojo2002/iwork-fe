@@ -1,21 +1,8 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
-import { AuthUserType } from '@crema/types/models/AuthUser';
-import { useInfoViewActionsContext } from '@crema/context/AppContextProvider/InfoViewContextProvider';
-import abpClient from '@crema/services/api/abpClient';
-import {
-  connectToken,
-  saveTokens,
-  clearTokens,
-  getAccessToken,
-  getRefreshToken,
-  refreshToken,
-} from './index';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { AuthUserType } from "@crema/types/models/AuthUser";
+import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
+import abpClient from "@crema/services/api/abpClient";
+import { connectToken, saveTokens, clearTokens, getAccessToken, getRefreshToken, refreshToken } from "./index";
 
 // ---------------------------------------------------------------------------
 // Context types
@@ -39,12 +26,12 @@ interface AbpAuthActionsProps {
 const AbpAuthContext = createContext<AbpAuthContextProps>({
   user: null,
   isAuthenticated: false,
-  isLoading: true,
+  isLoading: true
 });
 
 const AbpAuthActionsContext = createContext<AbpAuthActionsProps>({
   signInUser: async () => {},
-  logout: () => {},
+  logout: () => {}
 });
 
 export const useAbpAuth = () => useContext(AbpAuthContext);
@@ -59,13 +46,13 @@ export const useAbpAuthActions = () => useContext(AbpAuthActionsContext);
  * GET /api/account/my-profile
  */
 const fetchCurrentUser = async (): Promise<AuthUserType> => {
-  const { data } = await abpClient.get('/api/account/my-profile');
+  const { data } = await abpClient.get("/api/account/my-profile");
   return {
     uid: data.id,
     displayName: data.name || data.userName,
     email: data.email,
     photoURL: data.photoUrl ?? undefined,
-    role: data.roles ?? [],
+    role: data.roles ?? []
   };
 };
 
@@ -80,16 +67,11 @@ interface AbpAuthProviderProps {
   fetchError: (message: string) => void;
 }
 
-const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({
-  children,
-  fetchStart,
-  fetchSuccess,
-  fetchError,
-}) => {
+const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({ children, fetchStart, fetchSuccess, fetchError }) => {
   const [authData, setAuthData] = useState<AbpAuthContextProps>({
     user: null,
     isAuthenticated: false,
-    isLoading: true,
+    isLoading: true
   });
 
   // Lắng nghe event 401 từ abpClient interceptor
@@ -97,9 +79,8 @@ const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({
     const handleUnauthorized = () => {
       setAuthData({ user: null, isAuthenticated: false, isLoading: false });
     };
-    window.addEventListener('abp:unauthorized', handleUnauthorized);
-    return () =>
-      window.removeEventListener('abp:unauthorized', handleUnauthorized);
+    window.addEventListener("abp:unauthorized", handleUnauthorized);
+    return () => window.removeEventListener("abp:unauthorized", handleUnauthorized);
   }, []);
 
   // Khôi phục session khi reload trang
@@ -140,13 +121,7 @@ const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({
   // Actions
   // ---------------------------------------------------------------------------
 
-  const signInUser = async ({
-    email,
-    password,
-  }: {
-    email: string;
-    password: string;
-  }) => {
+  const signInUser = async ({ email, password }: { email: string; password: string }) => {
     fetchStart();
     try {
       const tokenResponse = await connectToken(email, password);
@@ -161,7 +136,7 @@ const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({
       const message =
         error?.response?.data?.error_description ??
         error?.response?.data?.error ??
-        'Đăng nhập thất bại. Kiểm tra lại email và mật khẩu.';
+        "Đăng nhập thất bại. Kiểm tra lại email và mật khẩu.";
       fetchError(message);
     }
   };
@@ -173,9 +148,7 @@ const AbpAuthProvider: React.FC<AbpAuthProviderProps> = ({
 
   return (
     <AbpAuthContext.Provider value={authData}>
-      <AbpAuthActionsContext.Provider value={{ signInUser, logout }}>
-        {children}
-      </AbpAuthActionsContext.Provider>
+      <AbpAuthActionsContext.Provider value={{ signInUser, logout }}>{children}</AbpAuthActionsContext.Provider>
     </AbpAuthContext.Provider>
   );
 };

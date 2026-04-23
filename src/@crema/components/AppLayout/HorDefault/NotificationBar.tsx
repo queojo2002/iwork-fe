@@ -6,12 +6,7 @@ const NotificationBar = () => {
   };
 
   return (
-    <StyledHeaderAlert
-      message=" Get flat 60% off on your first purchase"
-      type="warning"
-      closable
-      onClose={onClose}
-    />
+    <StyledHeaderAlert message=" Get flat 60% off on your first purchase" type="warning" closable onClose={onClose} />
   );
 };
 export default NotificationBar;

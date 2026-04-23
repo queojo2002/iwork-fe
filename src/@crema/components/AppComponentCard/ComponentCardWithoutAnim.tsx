@@ -9,7 +9,7 @@ import {
   StyledCompCardTitleDesc,
   StyledHiOutlineCode,
   StyledComponentRoot,
-  StyledPreTag,
+  StyledPreTag
 } from "./index.styled";
 
 interface ComponentCardWithoutAnimProps {
@@ -29,7 +29,7 @@ const ComponentCardWithoutAnim: React.FC<ComponentCardWithoutAnimProps> = ({
   className,
   maxHeight = 500,
   component: Component,
-  source,
+  source
 }) => {
   const [viewSource, setToggleViewSource] = useState(false);
   return (
@@ -38,18 +38,12 @@ const ComponentCardWithoutAnim: React.FC<ComponentCardWithoutAnimProps> = ({
       title={
         <>
           <span>{title}</span>
-          <StyledCompCardTitleDesc className="text-truncate">
-            {description}
-          </StyledCompCardTitleDesc>
+          <StyledCompCardTitleDesc className="text-truncate">{description}</StyledCompCardTitleDesc>
         </>
       }
       extra={
         source ? (
-          <Button
-            aria-label="view code"
-            shape="circle"
-            onClick={() => setToggleViewSource(!viewSource)}
-          >
+          <Button aria-label="view code" shape="circle" onClick={() => setToggleViewSource(!viewSource)}>
             <StyledHiOutlineCode />
           </Button>
         ) : null
@@ -62,7 +56,7 @@ const ComponentCardWithoutAnim: React.FC<ComponentCardWithoutAnimProps> = ({
               borderRadius: 8,
               background: "#333333",
               height: 350,
-              maxHeight: 400,
+              maxHeight: 400
             }}
           >
             <Highlight code={source} language="jsx" theme={highlightTheme}>

@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
-import clsx from 'clsx';
-import {StyledCard} from './index.styled';
+import React, { ReactNode } from "react";
+import clsx from "clsx";
+import { StyledCard } from "./index.styled";
 
 type AppCardProps = {
   className?: string;
@@ -28,7 +28,7 @@ const AppCard: React.FC<AppCardProps> = ({
 }) => {
   return (
     <StyledCard
-      className={clsx({heightFull: heightFull}, className)}
+      className={clsx({ heightFull: heightFull }, className)}
       title={title}
       extra={extra ? extra : null}
       cover={cover}

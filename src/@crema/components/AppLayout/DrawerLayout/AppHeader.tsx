@@ -10,33 +10,31 @@ import {
   StyledDrawerLayoutHeader,
   StyledDrawerLayoutHeaderDesk,
   StyledDrawerLayoutHeaderMobile,
-  StyledDrawerLayoutHeaderSearch,
+  StyledDrawerLayoutHeaderSearch
 } from "./index.styled";
 import { StyledDropdownWrapper } from "../index.styled";
 import { allowMultiLanguage } from "../../../constants/AppConst";
 
 const items = [
-  {key: 1, label: <AppHeaderMessages />},
-  {key: 2, label: <AppNotifications />},
-  {key: 3, label: <AppLanguageSwitcher />},
+  { key: 1, label: <AppHeaderMessages /> },
+  { key: 2, label: <AppNotifications /> },
+  { key: 3, label: <AppLanguageSwitcher /> }
 ];
 
 type AppHeaderProps = {
   showDrawer: () => void;
 };
 
-const AppHeader = ({showDrawer}: AppHeaderProps) => {
-  const {messages} = useIntl();
+const AppHeader = ({ showDrawer }: AppHeaderProps) => {
+  const { messages } = useIntl();
 
   return (
     <StyledDrawerLayoutHeader>
-      <a className='trigger' onClick={showDrawer}>
+      <a className="trigger" onClick={showDrawer}>
         <AiOutlineMenu />
       </a>
       <AppLogo />
-      <StyledDrawerLayoutHeaderSearch
-        placeholder={messages['common.searchHere'] as string}
-      />
+      <StyledDrawerLayoutHeaderSearch placeholder={messages["common.searchHere"] as string} />
       <StyledDrawerLayoutHeaderDesk>
         {allowMultiLanguage && <AppLanguageSwitcher />}
         <AppHeaderMessages />
@@ -45,15 +43,12 @@ const AppHeader = ({showDrawer}: AppHeaderProps) => {
       <StyledDrawerLayoutHeaderMobile>
         <StyledDropdownWrapper>
           <Dropdown
-            menu={{items}}
-            overlayClassName='dropdown-wrapper'
+            menu={{ items }}
+            overlayClassName="dropdown-wrapper"
             getPopupContainer={(triggerNode) => triggerNode}
-            trigger={['click']}
+            trigger={["click"]}
           >
-            <a
-              className='ant-dropdown-link-mobile'
-              onClick={(e) => e.preventDefault()}
-            >
+            <a className="ant-dropdown-link-mobile" onClick={(e) => e.preventDefault()}>
               <FiMoreVertical />
             </a>
           </Dropdown>

@@ -1,5 +1,5 @@
-import React, {createContext, ReactNode, useContext, useState} from 'react';
-import defaultConfig, {SidebarData} from '@crema/constants/defaultConfig';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import defaultConfig, { SidebarData } from "@crema/constants/defaultConfig";
 
 export interface SidebarContextData {
   menuStyle: string;
@@ -18,14 +18,14 @@ const SidebarContext = createContext<SidebarContextData>({
   menuStyle: defaultConfig.sidebar.menuStyle,
   sidebarColorSet: defaultConfig.sidebar.colorSet,
   allowSidebarBgImage: defaultConfig.sidebar.allowSidebarBgImage,
-  sidebarBgImageId: defaultConfig.sidebar.sidebarBgImageId,
+  sidebarBgImageId: defaultConfig.sidebar.sidebarBgImageId
 });
 
 const SidebarActionsContext = createContext<SidebarActions>({
   updateMenuStyle: () => {},
   updateSidebarColorSet: () => {},
   setSidebarBgImage: () => {},
-  updateSidebarBgImage: () => {},
+  updateSidebarBgImage: () => {}
 });
 
 export const useSidebarContext = () => useContext(SidebarContext);
@@ -36,21 +36,11 @@ interface SidebarContextProviderProps {
   children: ReactNode;
 }
 
-const SidebarContextProvider: React.FC<SidebarContextProviderProps> = ({
-  children,
-}) => {
-  const [menuStyle, updateMenuStyle] = useState<string>(
-    defaultConfig.sidebar.menuStyle,
-  );
-  const [sidebarColorSet, updateSidebarColorSet] = useState<SidebarData>(
-    defaultConfig.sidebar.colorSet,
-  );
-  const [allowSidebarBgImage, setSidebarBgImage] = useState<boolean>(
-    defaultConfig.sidebar.allowSidebarBgImage,
-  );
-  const [sidebarBgImageId, updateSidebarBgImage] = useState<number | string>(
-    defaultConfig.sidebar.sidebarBgImageId,
-  );
+const SidebarContextProvider: React.FC<SidebarContextProviderProps> = ({ children }) => {
+  const [menuStyle, updateMenuStyle] = useState<string>(defaultConfig.sidebar.menuStyle);
+  const [sidebarColorSet, updateSidebarColorSet] = useState<SidebarData>(defaultConfig.sidebar.colorSet);
+  const [allowSidebarBgImage, setSidebarBgImage] = useState<boolean>(defaultConfig.sidebar.allowSidebarBgImage);
+  const [sidebarBgImageId, updateSidebarBgImage] = useState<number | string>(defaultConfig.sidebar.sidebarBgImageId);
 
   return (
     <SidebarContext.Provider
@@ -58,7 +48,7 @@ const SidebarContextProvider: React.FC<SidebarContextProviderProps> = ({
         menuStyle,
         sidebarColorSet,
         allowSidebarBgImage,
-        sidebarBgImageId,
+        sidebarBgImageId
       }}
     >
       <SidebarActionsContext.Provider
@@ -66,7 +56,7 @@ const SidebarContextProvider: React.FC<SidebarContextProviderProps> = ({
           updateMenuStyle,
           updateSidebarColorSet,
           setSidebarBgImage,
-          updateSidebarBgImage,
+          updateSidebarBgImage
         }}
       >
         {children}

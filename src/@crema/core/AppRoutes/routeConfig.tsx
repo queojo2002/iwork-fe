@@ -14,7 +14,7 @@ const routesConfig = [
         messageId: "sidebar.sample.page1",
         type: "item",
         icon: <BiAlignLeft />,
-        url: "/sample/page-1",
+        url: "/sample/page-1"
       },
       {
         id: "page-2",
@@ -28,11 +28,11 @@ const routesConfig = [
             id: "area",
             title: "Area Chart",
             messageId: "sidebar.recharts.areaChart",
-            url: "/third-party/recharts/area",
-          },
-        ],
-      },
-    ],
-  },
+            url: "/third-party/recharts/area"
+          }
+        ]
+      }
+    ]
+  }
 ];
 export default routesConfig;

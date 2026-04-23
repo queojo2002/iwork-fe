@@ -11,5 +11,5 @@ export enum BookType {
   Horror = 5,
   Science = 6,
   ScienceFiction = 7,
-  Poetry = 8,
+  Poetry = 8
 }

@@ -2,11 +2,7 @@ import ReactCodeInput from "react-code-input";
 import { Form, Input } from "antd";
 import IntlMessages from "@crema/helpers/IntlMessages";
 import useIntl from "react-intl/lib/src/components/useIntl";
-import {
-  StyledAuthReconContent,
-  StyledConfirmBtn,
-  StyledResetForm,
-} from "../AuthWrapper.styled";
+import { StyledAuthReconContent, StyledConfirmBtn, StyledResetForm } from "../AuthWrapper.styled";
 
 const ResetPasswordAwsCognito = () => {
   const { messages } = useIntl();
@@ -27,34 +23,20 @@ const ResetPasswordAwsCognito = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <Form.Item
-          name="pin"
-          className="form-field"
-          rules={[{ required: true, message: "Please input your Pin!" }]}
-        >
+        <Form.Item name="pin" className="form-field" rules={[{ required: true, message: "Please input your Pin!" }]}>
           <p>
             <IntlMessages id="common.verificationMessage" />
           </p>
 
-          <ReactCodeInput
-            type="password"
-            fields={6}
-            inputMode="numeric"
-            name="pin"
-          />
+          <ReactCodeInput type="password" fields={6} inputMode="numeric" name="pin" />
         </Form.Item>
 
         <Form.Item
           name="newPassword"
           className="form-field"
-          rules={[
-            { required: true, message: "Please input your New Password!" },
-          ]}
+          rules={[{ required: true, message: "Please input your New Password!" }]}
         >
-          <Input
-            type="password"
-            placeholder={messages["common.newPassword"] as string}
-          />
+          <Input type="password" placeholder={messages["common.newPassword"] as string} />
         </Form.Item>
 
         <Form.Item
@@ -63,14 +45,11 @@ const ResetPasswordAwsCognito = () => {
           rules={[
             {
               required: true,
-              message: "Please input your Retype Password!",
-            },
+              message: "Please input your Retype Password!"
+            }
           ]}
         >
-          <Input
-            type="password"
-            placeholder={messages["common.retypePassword"] as string}
-          />
+          <Input type="password" placeholder={messages["common.retypePassword"] as string} />
         </Form.Item>
 
         <StyledConfirmBtn type="primary" htmlType="submit">

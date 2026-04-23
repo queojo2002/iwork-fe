@@ -1,6 +1,6 @@
-import {Layout} from 'antd';
-import styled from 'styled-components';
-import AppScrollbar from '../AppScrollbar';
+import { Layout } from "antd";
+import styled from "styled-components";
+import AppScrollbar from "../AppScrollbar";
 
 export const StyledDropdownWrapper = styled.div`
   & .dropdown-wrapper {
@@ -17,7 +17,7 @@ export const StyledDropdownWrapper = styled.div`
     text-transform: none;
   }
   & .ant-dropdown-link-mobile {
-    font-weight: ${({theme}) => theme.font.weight.medium};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
     text-transform: uppercase;
     margin-top: 0;
     width: 40px;
@@ -26,10 +26,10 @@ export const StyledDropdownWrapper = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    background-color: ${({theme}) => theme.palette.background.default};
-    color: ${({theme}) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.palette.background.default};
+    color: ${({ theme }) => theme.palette.text.primary};
     padding: 9px;
-    border-radius: ${({theme}) => theme.sizes.borderRadius.circle};
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.circle};
     border: 1px solid transparent;
   }
 `;

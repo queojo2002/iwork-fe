@@ -1,10 +1,10 @@
-import React, {CSSProperties, ReactNode, useEffect, useState} from 'react';
+import React, { CSSProperties, ReactNode, useEffect, useState } from "react";
 
-import AppAnimateGroup from '../AppAnimateGroup';
-import {Grid} from 'antd';
-import {useThemeContext} from '@crema/context/AppContextProvider/ThemeContextProvider';
-import {StyledGridColumnCount, StyledGridContainer} from './index.styled';
-import useBottomScrollListener from '@crema/hooks/useBottomScrollListener';
+import AppAnimateGroup from "../AppAnimateGroup";
+import { Grid } from "antd";
+import { useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
+import { StyledGridColumnCount, StyledGridContainer } from "./index.styled";
+import useBottomScrollListener from "@crema/hooks/useBottomScrollListener";
 
 type GridViewProps = {
   width?: string;
@@ -30,24 +30,15 @@ type GridViewProps = {
   [x: string]: any;
 };
 
-const {useBreakpoint} = Grid;
+const { useBreakpoint } = Grid;
 const getEmptyContainer = (ListEmptyComponent: any) => {
-  if (ListEmptyComponent)
-    return React.isValidElement(ListEmptyComponent) ? (
-      ListEmptyComponent
-    ) : (
-      <ListEmptyComponent />
-    );
+  if (ListEmptyComponent) return React.isValidElement(ListEmptyComponent) ? ListEmptyComponent : <ListEmptyComponent />;
   return null;
 };
 
 const getFooterContainer = (ListFooterComponent: any) => {
   if (ListFooterComponent)
-    return React.isValidElement(ListFooterComponent) ? (
-      ListFooterComponent
-    ) : (
-      <ListFooterComponent />
-    );
+    return React.isValidElement(ListFooterComponent) ? ListFooterComponent : <ListFooterComponent />;
   return null;
 };
 
@@ -65,7 +56,7 @@ const GridView: React.FC<GridViewProps> = ({
   ListEmptyComponent,
   ...rest
 }) => {
-  const {theme} = useThemeContext();
+  const { theme } = useThemeContext();
   const [displayColumn, setColumn] = useState(column);
 
   const width = useBreakpoint();
@@ -91,22 +82,9 @@ const GridView: React.FC<GridViewProps> = ({
             column
           );
         } else if (width.xl) {
-          return (
-            responsive.xl ||
-            responsive.lg ||
-            responsive.md ||
-            responsive.sm ||
-            responsive.xs ||
-            column
-          );
+          return responsive.xl || responsive.lg || responsive.md || responsive.sm || responsive.xs || column;
         } else if (width.lg) {
-          return (
-            responsive.lg ||
-            responsive.md ||
-            responsive.sm ||
-            responsive.xs ||
-            column
-          );
+          return responsive.lg || responsive.md || responsive.sm || responsive.xs || column;
         } else if (width.md) {
           return responsive.md || responsive.sm || responsive.xs || column;
         } else if (width.sm) {
@@ -125,15 +103,15 @@ const GridView: React.FC<GridViewProps> = ({
     border: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: "hidden"
   };
 
   let style = containerStyle;
   if (border) {
-    style = {...style, ...borderStyle};
+    style = { ...style, ...borderStyle };
   }
 
-  useBottomScrollListener(onEndReached, {debounce: 200});
+  useBottomScrollListener(onEndReached, { debounce: 200 });
   return (
     <StyledGridContainer>
       <AppAnimateGroup
@@ -146,27 +124,27 @@ const GridView: React.FC<GridViewProps> = ({
         //   ...style,
         // }}
         enter={{
-          animation,
+          animation
         }}
         style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
           margin: -itemPadding,
-          ...style,
+          ...style
         }}
         {...rest}
       >
         {data?.length > 0
           ? data.map((item, index) => (
               <StyledGridColumnCount
-                key={'grid-' + index}
+                key={"grid-" + index}
                 style={{
                   flexGrow: 0,
                   maxWidth: `${100 / displayColumn}%`,
                   flexBasis: `${100 / displayColumn}%`,
                   padding: itemPadding,
-                  boxSizing: 'border-box',
+                  boxSizing: "border-box"
                 }}
               >
                 {renderItem(item, index)}

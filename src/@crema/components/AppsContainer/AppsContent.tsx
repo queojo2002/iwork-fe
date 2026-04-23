@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
-import clsx from 'clsx';
-import {StyledAppContentContainer} from './index.styled';
+import React, { ReactNode } from "react";
+import clsx from "clsx";
+import { StyledAppContentContainer } from "./index.styled";
 
 type AppsContentProps = {
   children: ReactNode;
@@ -9,17 +9,9 @@ type AppsContentProps = {
 
   [x: string]: any;
 };
-const AppsContent: React.FC<AppsContentProps> = ({
-  children,
-  isDetailView = false,
-  fullView,
-  ...rest
-}) => {
+const AppsContent: React.FC<AppsContentProps> = ({ children, isDetailView = false, fullView, ...rest }) => {
   return (
-    <StyledAppContentContainer
-      {...rest}
-      className={clsx({isDetailView: isDetailView}, {fullView: fullView})}
-    >
+    <StyledAppContentContainer {...rest} className={clsx({ isDetailView: isDetailView }, { fullView: fullView })}>
       {children}
     </StyledAppContentContainer>
   );

@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import {List} from 'antd';
-import {
-  StyledNotifyListItem,
-  StyledNotifyMsgAvatar,
-} from './NotificationItem.styled';
+import { List } from "antd";
+import { StyledNotifyListItem, StyledNotifyMsgAvatar } from "./NotificationItem.styled";
 
 type NotificationItemProps = {
   item: {
@@ -14,9 +11,9 @@ type NotificationItemProps = {
   };
 };
 
-const NotificationItem: React.FC<NotificationItemProps> = ({item}) => {
+const NotificationItem: React.FC<NotificationItemProps> = ({ item }) => {
   return (
-    <StyledNotifyListItem className='item-hover'>
+    <StyledNotifyListItem className="item-hover">
       <List.Item.Meta
         avatar={<StyledNotifyMsgAvatar src={item.image} alt={item.name} />}
         title={item.name}

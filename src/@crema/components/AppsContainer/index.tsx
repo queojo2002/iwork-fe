@@ -10,7 +10,7 @@ import {
   StyledAppWrapHeader,
   StyledMainContent,
   StyledMainContentCard,
-  StyledMenuBtn,
+  StyledMenuBtn
 } from "./index.styled";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -29,7 +29,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
   sidebarContent,
   fullView,
   children,
-  cardStyle,
+  cardStyle
 }) => {
   const [isAppDrawerOpen, setAppDrawerOpen] = useState(false);
   const { footer, navStyle } = useLayoutContext();
@@ -38,7 +38,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
     <StyledAppWrap>
       <StyledAppWrapHeader
         className={clsx({
-          appsWrapHeaderFull: fullView,
+          appsWrapHeaderFull: fullView
         })}
       >
         {fullView ? null : (
@@ -76,7 +76,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
         ) : null}
         <StyledMainContent
           className={clsx({
-            appsMainContentFull: fullView,
+            appsMainContentFull: fullView
           })}
         >
           {noContentAnimation ? (
@@ -85,7 +85,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
               key="content"
               style={{
                 ...cardStyle,
-                borderRadius: 16,
+                borderRadius: 16
               }}
             >
               {children}
@@ -99,7 +99,7 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
                     key="content"
                     style={{
                       ...cardStyle,
-                      borderRadius: 16,
+                      borderRadius: 16
                     }}
                   >
                     {children}

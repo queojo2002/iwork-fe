@@ -1,3 +1,3 @@
-import SignupFirebase from './SignupFirebase';
+import SignupFirebase from "./SignupFirebase";
 
 export default SignupFirebase;

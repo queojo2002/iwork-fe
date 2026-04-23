@@ -8,7 +8,7 @@ import {
   StyledErrorContainer,
   StyledErrorContent,
   StyledErrorImageLg,
-  StyledErrorPara,
+  StyledErrorPara
 } from "../index.styled";
 
 const Maintenance = () => {

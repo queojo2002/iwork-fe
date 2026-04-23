@@ -18,7 +18,7 @@ import {
   StyledHeaderHorDarkSecMobile,
   StyledHeaderNavHorDark,
   StyledHeaderSearchHorDark,
-  StyledHorDarkMainFlex,
+  StyledHorDarkMainFlex
 } from "./index.styled";
 import { StyledDropdownWrapper } from "../index.styled";
 import { allowMultiLanguage } from "../../../constants/AppConst";
@@ -26,7 +26,7 @@ import { RouterConfigData } from "../../../types/models/Apps";
 const items = [
   { key: 1, label: <AppHeaderMessages /> },
   { key: 2, label: <AppNotifications /> },
-  { key: 3, label: <AppLanguageSwitcher /> },
+  { key: 3, label: <AppLanguageSwitcher /> }
 ];
 
 type AppHeaderProps = {
@@ -42,7 +42,7 @@ const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
     <StyledAppHeaderHorDark
       style={{
         backgroundColor: sidebarColorSet.sidebarBgColor,
-        color: sidebarColorSet.sidebarTextColor,
+        color: sidebarColorSet.sidebarTextColor
       }}
     >
       <NotificationBar />
@@ -50,7 +50,7 @@ const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
       <StyledHeaderHorDarkMain
         style={{
           backgroundColor: sidebarColorSet.sidebarBgColor,
-          color: sidebarColorSet.sidebarTextColor,
+          color: sidebarColorSet.sidebarTextColor
         }}
       >
         <StyledContainer>
@@ -59,9 +59,7 @@ const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
               <AiOutlineMenu />
             </a>
             <AppLogo hasSidebarColor />
-            <StyledHeaderSearchHorDark
-              placeholder={messages["common.searchHere"] as string}
-            />
+            <StyledHeaderSearchHorDark placeholder={messages["common.searchHere"] as string} />
 
             <StyledHeaderHorDarkSecDesktop>
               {allowMultiLanguage && <AppLanguageSwitcher />}
@@ -77,10 +75,7 @@ const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
                   getPopupContainer={(triggerNode) => triggerNode}
                   trigger={["click"]}
                 >
-                  <a
-                    className="ant-dropdown-link-mobile"
-                    onClick={(e) => e.preventDefault()}
-                  >
+                  <a className="ant-dropdown-link-mobile" onClick={(e) => e.preventDefault()}>
                     <FiMoreVertical />
                   </a>
                 </Dropdown>
@@ -93,7 +88,7 @@ const AppHeader = ({ showDrawer, routesConfig }: AppHeaderProps) => {
       <StyledHeaderNavHorDark
         style={{
           backgroundColor: sidebarColorSet.sidebarBgColor,
-          color: sidebarColorSet.sidebarTextColor,
+          color: sidebarColorSet.sidebarTextColor
         }}
       >
         <StyledContainer>

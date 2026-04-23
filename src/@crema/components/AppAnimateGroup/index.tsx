@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties } from "react";
 
 type AppAnimateGroupProps = {
   children: React.ReactNode;
@@ -26,8 +26,7 @@ const AppAnimateGroup: React.FC<AppAnimateGroupProps> = ({
   ...rest
 }) => {
   // Merge animateStyle into style so flex/layout hints still apply
-  const mergedStyle: CSSProperties | undefined =
-    animateStyle || style ? { ...animateStyle, ...style } : undefined;
+  const mergedStyle: CSSProperties | undefined = animateStyle || style ? { ...animateStyle, ...style } : undefined;
 
   return (
     <div style={mergedStyle} {...rest}>

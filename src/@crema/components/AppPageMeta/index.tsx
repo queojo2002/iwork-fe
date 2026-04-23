@@ -3,18 +3,14 @@ import { useLocation } from "react-router-dom";
 import Helmet from "react-helmet";
 
 const SITE_URL =
-  import.meta.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://ant-cra.cremawork.com/";
+  import.meta.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://ant-cra.cremawork.com/";
 
 const FACEBOOK_APP_ID = "XXXXXXXXX";
 
 const defaultTitle = "Crema-Ant Design admin Template";
 ``;
-const defaultDescription =
-  "Crema Ant is an Ant design based admin template. buid with CRA all ant library. ";
-const defaultImage =
-  "https://firebasestorage.googleapis.com/v0/b/crema-demo.appspot.com/o/logo512.png?alt=media";
+const defaultDescription = "Crema Ant is an Ant design based admin template. buid with CRA all ant library. ";
+const defaultImage = "https://firebasestorage.googleapis.com/v0/b/crema-demo.appspot.com/o/logo512.png?alt=media";
 const defaultTwitter = "@crema";
 const defaultSep = " | ";
 
@@ -47,16 +43,12 @@ const AppPageMeta: React.FC<AppPageMetaProps> = ({ children, ...rest }) => {
       published = "01-05-2021",
       updated,
       category = "admin Template, admin Dashboard, ",
-      tags = "admin Template, admin Dashboard, CRA, Antd, Ant Design, Less, Create React App, Firebase, Aws Cognito, Jwt-Auth, Mail App, Todo App, ",
+      tags = "admin Template, admin Dashboard, CRA, Antd, Ant Design, Less, Create React App, Firebase, Aws Cognito, Jwt-Auth, Mail App, Todo App, "
     }: AppPageMetaProps,
-    pathname: string,
+    pathname: string
   ) => {
-    const theTitle = title
-      ? (title + defaultSep + defaultTitle).substring(0, 60)
-      : defaultTitle;
-    const theDescription = description
-      ? description.substring(0, 155)
-      : defaultDescription;
+    const theTitle = title ? (title + defaultSep + defaultTitle).substring(0, 60) : defaultTitle;
+    const theDescription = description ? description.substring(0, 155) : defaultDescription;
     const theImage = image ? `${SITE_URL}${image}` : defaultImage;
 
     const metaTags = [
@@ -75,7 +67,7 @@ const AppPageMeta: React.FC<AppPageMetaProps> = ({ children, ...rest }) => {
       { property: "og:url", content: SITE_URL + pathname },
       { property: "og:description", content: theDescription },
       { property: "og:site_name", content: defaultTitle },
-      { property: "fb:app_id", content: FACEBOOK_APP_ID },
+      { property: "fb:app_id", content: FACEBOOK_APP_ID }
     ];
 
     if (noCrawl) {
@@ -104,16 +96,14 @@ const AppPageMeta: React.FC<AppPageMetaProps> = ({ children, ...rest }) => {
         htmlAttributes={{
           lang: "en",
           itemscope: undefined,
-          itemtype: `http://schema.org/${rest.schema || "admin Template"}`,
+          itemtype: `http://schema.org/${rest.schema || "admin Template"}`
         }}
-        title={
-          rest.title ? rest.title + defaultSep + defaultTitle : defaultTitle
-        }
+        title={rest.title ? rest.title + defaultSep + defaultTitle : defaultTitle}
         link={[
           {
             rel: "canonical",
-            href: SITE_URL + pathname,
-          },
+            href: SITE_URL + pathname
+          }
         ]}
         meta={getMetaTags(rest, pathname)}
       />

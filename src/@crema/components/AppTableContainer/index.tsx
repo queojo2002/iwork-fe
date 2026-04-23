@@ -1,6 +1,6 @@
-import React from 'react';
-import clsx from 'clsx';
-import {StyledQueueAnim} from './index.styled';
+import React from "react";
+import clsx from "clsx";
+import { StyledQueueAnim } from "./index.styled";
 
 type AppTableContainerProps = {
   columns: any;
@@ -21,10 +21,10 @@ const AppTableContainer: React.FC<AppTableContainerProps> = ({
 }) => {
   return (
     <StyledQueueAnim
-      className={clsx({hoverColor: hoverColor}, className)}
+      className={clsx({ hoverColor: hoverColor }, className)}
       columns={columns}
       dataSource={data}
-      rowKey='id'
+      rowKey="id"
       pagination={pagination}
       {...rest}
     />

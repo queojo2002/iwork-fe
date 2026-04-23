@@ -1,14 +1,14 @@
-import {Form, Tabs} from 'antd';
-import {rgba} from 'polished';
-import styled from 'styled-components';
+import { Form, Tabs } from "antd";
+import { rgba } from "polished";
+import styled from "styled-components";
 
 export const StyledUserProfileForm = styled(Form)`
   position: relative;
 `;
 
 export const StyledUserProfileFormTitle = styled.h3`
-  font-size: ${({theme}) => theme.font.size.lg};
-  font-weight: ${({theme}) => theme.font.weight.bold};
+  font-size: ${({ theme }) => theme.font.size.lg};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
   margin-bottom: 16px;
 `;
 
@@ -19,7 +19,7 @@ export const StyledUserProfileGroupBtn = styled(Form.Item)`
     & + .ant-btn {
       margin-left: 12px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-left: 0;
         margin-right: 12px;
       }
@@ -37,7 +37,7 @@ export const StyledProfileNotification = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 24px;
-    border-top: 1px solid ${({theme}) => theme.palette.borderColor};
+    border-top: 1px solid ${({ theme }) => theme.palette.borderColor};
   }
 `;
 
@@ -51,10 +51,10 @@ export const StyledNotificationListItem = styled.div`
   align-items: center;
 
   & .label {
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
     margin-left: 15px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-left: 0;
       margin-right: 15px;
     }
@@ -72,7 +72,7 @@ export const StyledUserProfileTabs = styled(Tabs)`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     flex-direction: row;
   }
 
@@ -90,16 +90,16 @@ export const StyledUserProfileTabs = styled(Tabs)`
 
   & .ant-tabs-nav {
     min-width: 200px;
-    background-color: ${({theme}) => theme.palette.background.paper};
-    border-radius: ${({theme}) => theme.cardRadius};
+    background-color: ${({ theme }) => theme.palette.background.paper};
+    border-radius: ${({ theme }) => theme.cardRadius};
     padding: 20px 0;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
       min-width: 280px;
     }
 
     & .ant-tabs-tab {
-      color: ${({theme}) => theme.palette.text.primary};
+      color: ${({ theme }) => theme.palette.text.primary};
       display: flex;
       align-items: center;
       padding: 12px 24px;
@@ -109,10 +109,10 @@ export const StyledUserProfileTabs = styled(Tabs)`
       &:hover,
       &:focus {
         background-color: transparent;
-        color: ${({theme}) => theme.palette.primary.main};
+        color: ${({ theme }) => theme.palette.primary.main};
       }
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-right: 0 !important;
         margin-left: 20px !important;
         border-radius: 30px 0 0 30px;
@@ -124,13 +124,14 @@ export const StyledUserProfileTabs = styled(Tabs)`
     }
 
     & .ant-tabs-tab-active {
-      color: ${({theme}) => theme.palette.primary.main};
-      background-color: ${({theme}) => rgba(theme.palette.primary.main, 0.1)};
+      color: ${({ theme }) => theme.palette.primary.main};
+      background-color: ${({ theme }) => rgba(theme.palette.primary.main, 0.1)};
 
       &:hover,
       &:focus {
-        color: ${({theme}) => theme.palette.primary.main};
-        background-color: ${({theme}) => rgba(theme.palette.primary.main, 0.1)};
+        color: ${({ theme }) => theme.palette.primary.main};
+        background-color: ${({ theme }) =>
+          rgba(theme.palette.primary.main, 0.1)};
       }
     }
 
@@ -144,10 +145,10 @@ export const StyledUserProfileTabs = styled(Tabs)`
     align-items: center;
 
     & .icon {
-      font-size: ${({theme}) => theme.font.size.lg};
+      font-size: ${({ theme }) => theme.font.size.lg};
       margin-right: 16px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         margin-right: 0;
         margin-left: 16px;
       }
@@ -157,24 +158,24 @@ export const StyledUserProfileTabs = styled(Tabs)`
   & .ant-tabs-content-holder {
     padding-top: 20px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       order: 2;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       padding-left: 20px;
       padding-top: 0;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 0;
         padding-right: 20px;
       }
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
       padding-left: 32px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 0;
         padding-right: 32px;
       }
@@ -182,8 +183,8 @@ export const StyledUserProfileTabs = styled(Tabs)`
   }
 
   & .ant-tabs-content {
-    background-color: ${({theme}) => theme.palette.background.paper};
-    border-radius: ${({theme}) => theme.cardRadius};
+    background-color: ${({ theme }) => theme.palette.background.paper};
+    border-radius: ${({ theme }) => theme.cardRadius};
     height: 100%;
     padding: 20px;
 

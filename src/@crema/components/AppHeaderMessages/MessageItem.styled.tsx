@@ -1,5 +1,5 @@
-import {List, Avatar} from 'antd';
-import styled from 'styled-components';
+import { List, Avatar } from "antd";
+import styled from "styled-components";
 
 export const StyledMsgListItem = styled(List.Item)`
   padding: 8px 20px !important;
@@ -20,15 +20,15 @@ export const StyledMsgAvatar = styled(Avatar)`
   height: 48px;
   margin-right: 12px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 12px;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin-right: 16px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 16px;
     }
@@ -36,14 +36,14 @@ export const StyledMsgAvatar = styled(Avatar)`
 `;
 
 export const StyledMsgListItemContent = styled.div`
-  font-size: ${({theme}) => theme.font.size.base};
-  color: ${({theme}) => theme.palette.text.secondary};
+  font-size: ${({ theme }) => theme.font.size.base};
+  color: ${({ theme }) => theme.palette.text.secondary};
   flex: 1;
 
   & h3 {
     margin-bottom: 2px;
-    font-weight: ${({theme}) => theme.font.weight.medium};
-    font-size: ${({theme}) => theme.font.size.base};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
+    font-size: ${({ theme }) => theme.font.size.base};
   }
 
   & p {
@@ -51,11 +51,11 @@ export const StyledMsgListItemContent = styled.div`
   }
 
   & span {
-    color: ${({theme}) => theme.palette.text.primary};
-    font-weight: ${({theme}) => theme.font.weight.medium};
+    color: ${({ theme }) => theme.palette.text.primary};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
     margin-right: 8px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 8px;
     }

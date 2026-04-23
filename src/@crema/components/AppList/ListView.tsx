@@ -1,7 +1,7 @@
-import React, {ReactNode} from 'react';
-import AppAnimateGroup from '../AppAnimateGroup';
-import {useThemeContext} from '@crema/context/AppContextProvider/ThemeContextProvider';
-import useBottomScrollListener from '@crema/hooks/useBottomScrollListener';
+import React, { ReactNode } from "react";
+import AppAnimateGroup from "../AppAnimateGroup";
+import { useThemeContext } from "@crema/context/AppContextProvider/ThemeContextProvider";
+import useBottomScrollListener from "@crema/hooks/useBottomScrollListener";
 
 type ListViewProps = {
   className?: string;
@@ -20,22 +20,13 @@ type ListViewProps = {
 };
 
 const getEmptyContainer = (ListEmptyComponent: any) => {
-  if (ListEmptyComponent)
-    return React.isValidElement(ListEmptyComponent) ? (
-      ListEmptyComponent
-    ) : (
-      <ListEmptyComponent />
-    );
+  if (ListEmptyComponent) return React.isValidElement(ListEmptyComponent) ? ListEmptyComponent : <ListEmptyComponent />;
   return null;
 };
 
 const getFooterContainer = (ListFooterComponent: any) => {
   if (ListFooterComponent)
-    return React.isValidElement(ListFooterComponent) ? (
-      ListFooterComponent
-    ) : (
-      <ListFooterComponent />
-    );
+    return React.isValidElement(ListFooterComponent) ? ListFooterComponent : <ListFooterComponent />;
   return null;
 };
 const ListView: React.FC<ListViewProps> = ({
@@ -45,7 +36,7 @@ const ListView: React.FC<ListViewProps> = ({
   ListFooterComponent,
   ListEmptyComponent,
   interval = 50,
-  type = 'top',
+  type = "top",
   duration = 300,
   delay = 0,
   animation,
@@ -53,12 +44,12 @@ const ListView: React.FC<ListViewProps> = ({
   containerStyle,
   ...rest
 }) => {
-  const {theme} = useThemeContext();
+  const { theme } = useThemeContext();
   const borderStyle = {
     border: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.background.paper,
     borderRadius: 4,
-    overflow: 'hidden',
+    overflow: "hidden"
   };
 
   if (!onEndReached) {
@@ -67,23 +58,15 @@ const ListView: React.FC<ListViewProps> = ({
 
   let style = containerStyle;
   if (border) {
-    style = {...style, ...borderStyle};
+    style = { ...style, ...borderStyle };
   }
 
-  useBottomScrollListener(onEndReached, {debounce: 200});
+  useBottomScrollListener(onEndReached, { debounce: 200 });
   return (
-    <AppAnimateGroup
-      style={{...style}}
-      {...rest}
-      enter={{delay, duration, animation}}
-    >
+    <AppAnimateGroup style={{ ...style }} {...rest} enter={{ delay, duration, animation }}>
       {data?.length > 0
         ? data.map((item, index) => {
-            return (
-              <div key={'listItem-' + item.id + '-' + index}>
-                {renderItem(item, index)}
-              </div>
-            );
+            return <div key={"listItem-" + item.id + "-" + index}>{renderItem(item, index)}</div>;
           })
         : getEmptyContainer(ListEmptyComponent)}
       {getFooterContainer(ListFooterComponent)}

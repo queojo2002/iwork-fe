@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
-import AppAnimateGroup from '../AppAnimateGroup';
-import ComponentCardWithoutAnim from './ComponentCardWithoutAnim';
+import React, { ReactNode } from "react";
+import AppAnimateGroup from "../AppAnimateGroup";
+import ComponentCardWithoutAnim from "./ComponentCardWithoutAnim";
 
 interface AppComponentCardProps {
   title: any;
@@ -15,14 +15,14 @@ interface AppComponentCardProps {
 
 const AppComponentCard: React.FC<AppComponentCardProps> = ({
   title,
-  description = '',
+  description = "",
   className,
   maxHeight = 500,
   component,
-  source,
+  source
 }) => {
   return (
-    <AppAnimateGroup type='bottom' interval={100} duration={450}>
+    <AppAnimateGroup type="bottom" interval={100} duration={450}>
       <ComponentCardWithoutAnim
         title={title}
         description={description}
@@ -30,7 +30,7 @@ const AppComponentCard: React.FC<AppComponentCardProps> = ({
         maxHeight={maxHeight}
         component={component}
         source={source}
-        key={'card'}
+        key={"card"}
       />
     </AppAnimateGroup>
   );

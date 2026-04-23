@@ -11,9 +11,9 @@ const InjectMassage = (props: any) => {
 };
 
 InjectMassage.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default injectIntl(InjectMassage, {
-  forwardRef: false,
+  forwardRef: false
 });

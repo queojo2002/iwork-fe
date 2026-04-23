@@ -2,9 +2,9 @@
 // Augment styled-components DefaultTheme to match the actual theme object
 // defined in src/@crema/constants/defaultConfig.ts
 
-import 'styled-components';
+import "styled-components";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     spacing: number;
     cardRadius: number | string;

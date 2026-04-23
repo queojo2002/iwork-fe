@@ -6,7 +6,7 @@ import {
   StyledProfileNotification,
   StyledUserProfileForm,
   StyledUserProfileFormTitle,
-  StyledUserProfileGroupBtn,
+  StyledUserProfileGroupBtn
 } from "../index.styled";
 import { NotificationType } from "@crema/types/models/account";
 
@@ -23,16 +23,12 @@ const Notification = ({ notification }: NotificationProps) => {
     console.log("Failed:", errorInfo);
   };
 
-  const onChange=(checked: boolean)=> {
+  const onChange = (checked: boolean) => {
     console.log(`switch to ${checked}`);
-  }
+  };
 
   return (
-    <StyledUserProfileForm
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
+    <StyledUserProfileForm initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed}>
       <StyledProfileNotification className="profile-notification">
         <StyledUserProfileFormTitle>
           <IntlMessages id="userProfile.activity" />
@@ -41,10 +37,7 @@ const Notification = ({ notification }: NotificationProps) => {
           {notification.activity.map((activity, index) => {
             return (
               <StyledNotificationListItem key={index}>
-                <Switch
-                  defaultChecked={activity.defaultChecked}
-                  onChange={onChange}
-                />
+                <Switch defaultChecked={activity.defaultChecked} onChange={onChange} />
                 <label className="label">{activity.title}</label>
               </StyledNotificationListItem>
             );
@@ -60,10 +53,7 @@ const Notification = ({ notification }: NotificationProps) => {
           {notification.application.map((application, index: number) => {
             return (
               <StyledNotificationListItem key={index}>
-                <Switch
-                  defaultChecked={application.defaultChecked}
-                  onChange={onChange}
-                />
+                <Switch defaultChecked={application.defaultChecked} onChange={onChange} />
                 <label className="label">{application.title}</label>
               </StyledNotificationListItem>
             );
@@ -71,10 +61,7 @@ const Notification = ({ notification }: NotificationProps) => {
         </StyledNotificationList>
       </StyledProfileNotification>
 
-      <StyledUserProfileGroupBtn
-        shouldUpdate
-        className="user-profile-group-btn"
-      >
+      <StyledUserProfileGroupBtn shouldUpdate className="user-profile-group-btn">
         <Button type="primary" htmlType="submit">
           Save Changes
         </Button>

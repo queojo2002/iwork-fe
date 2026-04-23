@@ -1,5 +1,5 @@
-import React, {ReactNode} from 'react';
-import AppLoader from '../AppLoader';
+import React, { ReactNode } from "react";
+import AppLoader from "../AppLoader";
 
 type AppSuspenseProps = {
   children: ReactNode;
@@ -8,7 +8,7 @@ type AppSuspenseProps = {
   };
 };
 
-const AppSuspense: React.FC<AppSuspenseProps> = ({children}) => {
+const AppSuspense: React.FC<AppSuspenseProps> = ({ children }) => {
   return <React.Suspense fallback={<AppLoader />}>{children}</React.Suspense>;
 };
 

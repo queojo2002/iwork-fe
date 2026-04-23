@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const usePrevious = (value: any) => {
   const ref = React.useRef();

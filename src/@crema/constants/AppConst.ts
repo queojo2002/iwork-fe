@@ -1,6 +1,6 @@
 export const authRole = {
   Admin: ["admin"],
-  User: ["user", "admin"],
+  User: ["user", "admin"]
 };
 
 export const defaultUser: any = {
@@ -9,7 +9,7 @@ export const defaultUser: any = {
   email: "demo@example.com",
   token: "access-token",
   role: "user",
-  photoURL: "/assets/images/avatar/A11.jpg",
+  photoURL: "/assets/images/avatar/A11.jpg"
 };
 export const allowMultiLanguage = import.meta.env.VITE_MULTILINGUAL === "true";
 export const fileStackKey = import.meta.env.VITE_FILESTACK_KEY as string;

@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useReducer,
-} from "react";
+import React, { createContext, ReactNode, useContext, useReducer } from "react";
 import { contextReducer, InFoViewActions } from "./InfoViewReducer";
 
 export type InfoViewData = {
@@ -23,7 +18,7 @@ export type InfoViewActions = {
 export const ContextState: InfoViewData = {
   loading: false,
   error: "",
-  displayMessage: "",
+  displayMessage: ""
 };
 
 const InfoViewContext = createContext<InfoViewData>(ContextState);
@@ -32,24 +27,17 @@ const InfoViewActionsContext = createContext<InfoViewActions>({
   fetchSuccess: () => {},
   fetchError: () => {},
   showMessage: () => {},
-  clearInfoView: () => {},
+  clearInfoView: () => {}
 });
 
 export const useInfoViewContext = () => useContext(InfoViewContext);
-export const useInfoViewActionsContext = () =>
-  useContext(InfoViewActionsContext);
+export const useInfoViewActionsContext = () => useContext(InfoViewActionsContext);
 
 type InfoViewContextProviderProps = {
   children: ReactNode;
 };
-const InfoViewContextProvider: React.FC<InfoViewContextProviderProps> = (
-  props,
-) => {
-  const [state, dispatch] = useReducer(
-    contextReducer,
-    ContextState,
-    () => ContextState,
-  );
+const InfoViewContextProvider: React.FC<InfoViewContextProviderProps> = (props) => {
+  const [state, dispatch] = useReducer(contextReducer, ContextState, () => ContextState);
 
   const fetchStart = () => {
     dispatch({ type: InFoViewActions.FETCH_STARTS });
@@ -79,7 +67,7 @@ const InfoViewContextProvider: React.FC<InfoViewContextProviderProps> = (
           fetchSuccess,
           fetchError,
           showMessage,
-          clearInfoView,
+          clearInfoView
         }}
       >
         {props.children}

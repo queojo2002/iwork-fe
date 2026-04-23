@@ -1,7 +1,4 @@
-import {
-  useSidebarActionsContext,
-  useSidebarContext,
-} from "@crema/context/AppContextProvider/SidebarContextProvider";
+import { useSidebarActionsContext, useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import NavMenuStyle from "./NavMenuStyle";
 import IntlMessages from "@crema/helpers/IntlMessages";
 import { CheckOutlined } from "@ant-design/icons";
@@ -13,14 +10,14 @@ import {
   StyledCustomizeNavOption,
   StyledCustomizeNavOptionContent,
   StyledCustomizeNavOptionItem,
-  StyledCustomizeNavOptionRightIcon,
+  StyledCustomizeNavOptionRightIcon
 } from "../index.styled";
 import { sidebarBgImages } from "@crema/mockapi/fakedb/navigationStyle";
 
 const SidebarSettings = () => {
-  const {sidebarBgImageId, allowSidebarBgImage} = useSidebarContext();
+  const { sidebarBgImageId, allowSidebarBgImage } = useSidebarContext();
 
-  const {updateSidebarBgImage, setSidebarBgImage} = useSidebarActionsContext();
+  const { updateSidebarBgImage, setSidebarBgImage } = useSidebarActionsContext();
 
   const onToggleSidebarImage = () => {
     setSidebarBgImage(!allowSidebarBgImage);
@@ -35,23 +32,18 @@ const SidebarSettings = () => {
       <StyledCustomizedItem>
         <StyledCustomizedSwitchView>
           <h4>
-            <IntlMessages id='customizer.sidebarImage' />
+            <IntlMessages id="customizer.sidebarImage" />
           </h4>
-          <StyledCustomizedSwitch
-            checked={allowSidebarBgImage}
-            onChange={onToggleSidebarImage}
-          />
+          <StyledCustomizedSwitch checked={allowSidebarBgImage} onChange={onToggleSidebarImage} />
         </StyledCustomizedSwitchView>
 
         {allowSidebarBgImage ? (
-          <StyledCustomizeNavOption style={{marginTop: 20}}>
+          <StyledCustomizeNavOption style={{ marginTop: 20 }}>
             {sidebarBgImages.map((imagesObj) => {
               return (
                 <StyledCustomizeNavOptionItem key={imagesObj.id}>
-                  <StyledCustomizeNavOptionContent
-                    onClick={() => onUpdateSidebarBgImage(imagesObj.id)}
-                  >
-                    <img src={imagesObj.image} alt='nav' />
+                  <StyledCustomizeNavOptionContent onClick={() => onUpdateSidebarBgImage(imagesObj.id)}>
+                    <img src={imagesObj.image} alt="nav" />
                     {sidebarBgImageId === imagesObj.id ? (
                       <StyledCustomizeNavOptionRightIcon>
                         <CheckOutlined />

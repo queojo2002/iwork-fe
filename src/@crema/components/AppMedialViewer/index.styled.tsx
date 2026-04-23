@@ -1,5 +1,5 @@
-import {Modal} from 'antd';
-import styled from 'styled-components';
+import { Modal } from "antd";
+import styled from "styled-components";
 
 export const StyledEmbedResponsive = styled.div`
   position: relative;
@@ -9,7 +9,7 @@ export const StyledEmbedResponsive = styled.div`
   overflow: hidden;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-top: 30%;
   }
@@ -101,13 +101,13 @@ export const StyledMedialCarousel = styled.div`
 
   & .slick-dots li button:before,
   & .slick-dots li.slick-active button:before {
-    background-color: ${({theme}) => theme.palette.background.paper};
+    background-color: ${({ theme }) => theme.palette.background.paper};
   }
 
   & .slick-next {
     right: 0;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       right: auto;
       left: 0;
     }
@@ -116,7 +116,7 @@ export const StyledMedialCarousel = styled.div`
   & .slick-prev {
     left: 0;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       left: auto;
       right: 0;
     }

@@ -1,11 +1,11 @@
-import saMessages from '../locales/it_IT.json';
-import itIT from 'antd/lib/locale/it_IT';
+import saMessages from "../locales/it_IT.json";
+import itIT from "antd/lib/locale/it_IT";
 
 const saLang = {
   messages: {
-    ...saMessages,
+    ...saMessages
   },
   antLocale: itIT,
-  locale: 'it-IT',
+  locale: "it-IT"
 };
 export default saLang;

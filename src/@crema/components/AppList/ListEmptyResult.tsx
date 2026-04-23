@@ -1,10 +1,7 @@
-import React, {ReactNode} from 'react';
-import {Button, Progress} from 'antd';
-import IntlMessages from '@crema/helpers/IntlMessages';
-import {
-  StyledEmptyListContainer,
-  StyledEmptyListContainerFlex,
-} from './index.styled';
+import React, { ReactNode } from "react";
+import { Button, Progress } from "antd";
+import IntlMessages from "@crema/helpers/IntlMessages";
+import { StyledEmptyListContainer, StyledEmptyListContainerFlex } from "./index.styled";
 
 type ListEmptyResultProps = {
   title?: string | ReactNode;
@@ -20,10 +17,10 @@ export const ListEmptyResult: React.FC<ListEmptyResultProps> = ({
   loader,
   placeholder,
   loading,
-  title = <IntlMessages id='common.noRecordFound' />,
+  title = <IntlMessages id="common.noRecordFound" />,
   actionTitle,
   content,
-  onClick,
+  onClick
 }) => {
   if (loading || loader) {
     return (
@@ -45,11 +42,7 @@ export const ListEmptyResult: React.FC<ListEmptyResultProps> = ({
         <p>{content}</p>
 
         {actionTitle ? (
-          <Button
-            type='primary'
-            style={{marginTop: 30, minWidth: 150}}
-            onClick={onClick}
-          >
+          <Button type="primary" style={{ marginTop: 30, minWidth: 150 }} onClick={onClick}>
             {actionTitle}
           </Button>
         ) : null}

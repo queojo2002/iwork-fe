@@ -1,15 +1,8 @@
 import IntlMessages from "@crema/helpers/IntlMessages";
-import {
-  useSidebarActionsContext,
-  useSidebarContext,
-} from "@crema/context/AppContextProvider/SidebarContextProvider";
+import { useSidebarActionsContext, useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import AppSelectedIcon from "../../../AppSelectedIcon";
 import { StyledCustomizedItem } from "../../index.styled";
-import {
-  StyledNavMenu,
-  StyledNavMenuItem,
-  StyledNavMenuItemCur,
-} from "./index.styled";
+import { StyledNavMenu, StyledNavMenuItem, StyledNavMenuItemCur } from "./index.styled";
 import { menuStyles } from "@crema/mockapi/fakedb/navigationStyle";
 
 const NavMenuStyle = () => {
@@ -33,9 +26,7 @@ const NavMenuStyle = () => {
           {menuStyles.map((menu) => {
             return (
               <StyledNavMenuItem style={{}} key={menu.id}>
-                <StyledNavMenuItemCur
-                  onClick={() => onMenuStyleChange(menu.alias)}
-                >
+                <StyledNavMenuItemCur onClick={() => onMenuStyleChange(menu.alias)}>
                   <img src={menu.image} alt="nav" />
                   {menuStyle === menu.alias ? <AppSelectedIcon /> : null}
                 </StyledNavMenuItemCur>

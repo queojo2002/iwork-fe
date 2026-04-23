@@ -6,11 +6,7 @@ import { useLocation } from "react-router-dom";
 import { LayoutDirection } from "@crema/constants/AppEnums";
 import { useSidebarContext } from "@crema/context/AppContextProvider/SidebarContextProvider";
 import { useLayoutContext } from "@crema/context/AppContextProvider/LayoutContextProvider";
-import {
-  StyledAppDrawer,
-  StyledAppDrawerLayoutSidebar,
-  StyledAppDrawerSidebarScrollbar,
-} from "./index.styled";
+import { StyledAppDrawer, StyledAppDrawerLayoutSidebar, StyledAppDrawerSidebarScrollbar } from "./index.styled";
 import { RouterConfigData } from "@crema/types/models/Apps";
 
 type AppSidebarProps = {
@@ -37,7 +33,7 @@ const AppSidebar = ({ visible, onClose, routesConfig }: AppSidebarProps) => {
     >
       <StyledAppDrawerLayoutSidebar
         className={clsx({
-          "drawerLayout-sidebar-img-background": allowSidebarBgImage,
+          "drawerLayout-sidebar-img-background": allowSidebarBgImage
         })}
         collapsible
       >

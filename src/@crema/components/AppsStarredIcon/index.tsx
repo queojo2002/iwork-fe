@@ -1,7 +1,7 @@
-import React, {ReactNode} from 'react';
-import {StarFilled, StarOutlined} from '@ant-design/icons';
-import AppIconButton from '../AppIconButton';
-import {StyledStarIcon} from './index.styled';
+import React, { ReactNode } from "react";
+import { StarFilled, StarOutlined } from "@ant-design/icons";
+import AppIconButton from "../AppIconButton";
+import { StyledStarIcon } from "./index.styled";
 
 interface AppsStarredIconProps {
   item: any;
@@ -9,18 +9,10 @@ interface AppsStarredIconProps {
   onChange: any;
 }
 
-const AppsStarredIcon: React.FC<AppsStarredIconProps> = ({
-  item,
-  title,
-  onChange,
-}) => {
+const AppsStarredIcon: React.FC<AppsStarredIconProps> = ({ item, title, onChange }) => {
   return (
     <AppIconButton
-      icon={
-        <StyledStarIcon>
-          {item.isStarred ? <StarFilled /> : <StarOutlined />}
-        </StyledStarIcon>
-      }
+      icon={<StyledStarIcon>{item.isStarred ? <StarFilled /> : <StarOutlined />}</StyledStarIcon>}
       title={title}
       onClick={() => onChange(!item.isStarred, item)}
     />

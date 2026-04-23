@@ -6,19 +6,19 @@ import { fileURLToPath, URL } from "url";
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env": {},
+    "process.env": {}
   },
   server: {
     hmr: {
-      overlay: false,
-    },
+      overlay: false
+    }
   },
   resolve: {
     alias: [
       {
         find: "@crema",
-        replacement: fileURLToPath(new URL("./src/@crema", import.meta.url)),
-      },
-    ],
-  },
+        replacement: fileURLToPath(new URL("./src/@crema", import.meta.url))
+      }
+    ]
+  }
 });

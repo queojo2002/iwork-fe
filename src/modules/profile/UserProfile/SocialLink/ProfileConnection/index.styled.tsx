@@ -1,6 +1,6 @@
-import AppCard from '@crema/components/AppCard';
-import {Button} from 'antd';
-import styled from 'styled-components';
+import AppCard from "@crema/components/AppCard";
+import { Button } from "antd";
+import styled from "styled-components";
 
 export const StyledProfileConnection = styled.div`
   position: relative;
@@ -10,12 +10,12 @@ export const StyledProfileConnection = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
-  border-top: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-top: 1px solid ${({ theme }) => theme.palette.borderColor};
 `;
 
 export const StyledProfileConnectionTitle = styled.h3`
-  font-size: ${({theme}) => theme.font.size.lg};
-  font-weight: ${({theme}) => theme.font.weight.bold};
+  font-size: ${({ theme }) => theme.font.size.lg};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
   margin-bottom: 16px;
 `;
 
@@ -26,15 +26,15 @@ export const StyledMemberItem = styled.div`
 `;
 
 export const StyledMemberCard = styled(AppCard)`
-  border: 1px solid ${({theme}) => theme.palette.borderColor};
-  border-radius: ${({theme}) => theme.sizes.borderRadius.base};
+  border: 1px solid ${({ theme }) => theme.palette.borderColor};
+  border-radius: ${({ theme }) => theme.sizes.borderRadius.base};
 `;
 
 export const StyledMemberCardTitle = styled.h4`
-  font-size: ${({theme}) => theme.font.size.sm};
-  font-weight: ${({theme}) => theme.font.weight.bold};
+  font-size: ${({ theme }) => theme.font.size.sm};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
   margin-bottom: 16px;
-  color: ${({theme}) => theme.palette.text.secondary};
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 export const StyledMemberInfo = styled.div`
@@ -44,7 +44,7 @@ export const StyledMemberInfo = styled.div`
 export const StyledMemberThumb = styled.div`
   margin-right: 12px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-right: 0;
     margin-left: 12px;
   }
@@ -59,13 +59,13 @@ export const StyledMemberInfoContent = styled.div`
   flex: 1;
 
   & h5 {
-    font-weight: ${({theme}) => theme.font.weight.medium};
-    font-size: ${({theme}) => theme.font.size.base};
+    font-weight: ${({ theme }) => theme.font.weight.medium};
+    font-size: ${({ theme }) => theme.font.size.base};
     margin-bottom: 10px;
   }
 
   & .ant-btn {
-    font-size: ${({theme}) => theme.font.size.sm};
+    font-size: ${({ theme }) => theme.font.size.sm};
     height: 30px;
     padding: 3.5px 12px;
   }
@@ -73,13 +73,13 @@ export const StyledMemberInfoContent = styled.div`
 
 export const StyledDisconnectBtn = styled(Button)`
   background-color: rgba(240, 79, 71, 0.1);
-  color: ${({theme}) => theme.palette.secondary.main};
+  color: ${({ theme }) => theme.palette.secondary.main};
   border-color: rgba(240, 79, 71, 0.1);
 
   &:hover,
   &:focus {
     background-color: rgba(240, 79, 71, 0.2);
-    color: ${({theme}) => theme.palette.secondary.main};
+    color: ${({ theme }) => theme.palette.secondary.main};
     border-color: rgba(240, 79, 71, 0.2);
   }
 `;

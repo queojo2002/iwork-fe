@@ -1,10 +1,10 @@
-import React, {ReactNode} from 'react';
-import SimpleBarReact from 'simplebar-react';
-import 'simplebar-react/dist/simplebar.min.css';
-import styled from 'styled-components';
+import React, { ReactNode } from "react";
+import SimpleBarReact from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
+import styled from "styled-components";
 
 export const StyledScrollbar = styled(SimpleBarReact).withConfig({
-  shouldForwardProp: (prop) => prop !== 'scrollToTop',
+  shouldForwardProp: (prop) => prop !== "scrollToTop"
 })`
   position: relative;
   width: 100%;
@@ -20,7 +20,6 @@ export const StyledScrollbar = styled(SimpleBarReact).withConfig({
   }
 `;
 
-// eslint-disable-next-line no-unused-vars
 type AppScrollbarProps = {
   children: ReactNode;
   className?: string;
@@ -43,7 +42,7 @@ const AppScrollbarBase: React.FC<AppScrollbarProps> = ({
 };
 
 const AppScrollbar = styled(AppScrollbarBase).withConfig({
-  shouldForwardProp: (prop) => prop !== 'scrollToTop',
+  shouldForwardProp: (prop) => prop !== "scrollToTop"
 })``;
 
 export default AppScrollbar;

@@ -5,7 +5,7 @@ import AppLoader from "../AppLoader";
 
 import {
   useInfoViewActionsContext,
-  useInfoViewContext,
+  useInfoViewContext
 } from "@crema/context/AppContextProvider/InfoViewContextProvider";
 
 const AppInfoView = () => {

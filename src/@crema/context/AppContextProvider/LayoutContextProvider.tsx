@@ -1,5 +1,5 @@
-import React, {createContext, ReactNode, useContext, useState} from 'react';
-import defaultConfig from '@crema/constants/defaultConfig';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import defaultConfig from "@crema/constants/defaultConfig";
 
 export type LayoutData = {
   layoutType: string;
@@ -22,7 +22,7 @@ const LayoutContext = createContext<LayoutData>({
   navStyle: defaultConfig.navStyle,
   layoutType: defaultConfig.layoutType,
   footerType: defaultConfig.footerType,
-  direction: defaultConfig.direction,
+  direction: defaultConfig.direction
 });
 
 const LayoutActionsContext = createContext<LayoutActions>({
@@ -30,7 +30,7 @@ const LayoutActionsContext = createContext<LayoutActions>({
   updateNavStyle: () => {},
   setFooterType: () => {},
   setFooter: () => {},
-  updateDirection: () => {},
+  updateDirection: () => {}
 });
 
 export const useLayoutContext = () => useContext(LayoutContext);
@@ -41,19 +41,11 @@ type LayoutContextProviderProps = {
   children: ReactNode;
 };
 
-const LayoutContextProvider: React.FC<LayoutContextProviderProps> = ({
-  children,
-}) => {
-  const [layoutType, updateLayoutType] = useState<string>(
-    defaultConfig.layoutType,
-  );
+const LayoutContextProvider: React.FC<LayoutContextProviderProps> = ({ children }) => {
+  const [layoutType, updateLayoutType] = useState<string>(defaultConfig.layoutType);
   const [navStyle, updateNavStyle] = useState<string>(defaultConfig.navStyle);
-  const [direction, updateDirection] = useState<string>(
-    defaultConfig.direction,
-  );
-  const [footerType, setFooterType] = useState<string>(
-    defaultConfig.footerType,
-  );
+  const [direction, updateDirection] = useState<string>(defaultConfig.direction);
+  const [footerType, setFooterType] = useState<string>(defaultConfig.footerType);
   const [footer, setFooter] = useState<boolean>(defaultConfig.footer);
 
   return (
@@ -63,7 +55,7 @@ const LayoutContextProvider: React.FC<LayoutContextProviderProps> = ({
         direction,
         footerType,
         footer,
-        layoutType,
+        layoutType
       }}
     >
       <LayoutActionsContext.Provider
@@ -72,7 +64,7 @@ const LayoutContextProvider: React.FC<LayoutContextProviderProps> = ({
           setFooterType,
           updateNavStyle,
           updateLayoutType,
-          updateDirection,
+          updateDirection
         }}
       >
         {children}

@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { AuthUserType } from "@crema/types/models/AuthUser";
 import jwtAxios, { setAuthToken } from "./index";
 import { useInfoViewActionsContext } from "@crema/context/AppContextProvider/InfoViewContextProvider";
@@ -35,12 +29,12 @@ interface JWTAuthActionsProps {
 const JWTAuthContext = createContext<JWTAuthContextProps>({
   user: null,
   isAuthenticated: false,
-  isLoading: true,
+  isLoading: true
 });
 const JWTAuthActionsContext = createContext<JWTAuthActionsProps>({
   signUpUser: () => {},
   signInUser: () => {},
-  logout: () => {},
+  logout: () => {}
 });
 
 export const useJWTAuth = () => useContext(JWTAuthContext);
@@ -51,13 +45,11 @@ interface JWTAuthAuthProviderProps {
   children: ReactNode;
 }
 
-const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
-  children,
-}) => {
+const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({ children }) => {
   const [firebaseData, setJWTAuthData] = useState<JWTAuthContextProps>({
     user: null,
     isAuthenticated: false,
-    isLoading: true,
+    isLoading: true
   });
 
   const infoViewActionsContext = useInfoViewActionsContext();
@@ -70,7 +62,7 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
         setJWTAuthData({
           user: undefined,
           isLoading: false,
-          isAuthenticated: false,
+          isAuthenticated: false
         });
         return;
       }
@@ -81,28 +73,22 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
           setJWTAuthData({
             user: data,
             isLoading: false,
-            isAuthenticated: true,
-          }),
+            isAuthenticated: true
+          })
         )
         .catch(() =>
           setJWTAuthData({
             user: undefined,
             isLoading: false,
-            isAuthenticated: false,
-          }),
+            isAuthenticated: false
+          })
         );
     };
 
     getAuthUser();
   }, []);
 
-  const signInUser = async ({
-    email,
-    password,
-  }: {
-    email: string;
-    password: string;
-  }) => {
+  const signInUser = async ({ email, password }: { email: string; password: string }) => {
     infoViewActionsContext.fetchStart();
     try {
       const { data } = await jwtAxios.post("auth", { email, password });
@@ -112,28 +98,20 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
       setJWTAuthData({
         user: res.data,
         isAuthenticated: true,
-        isLoading: false,
+        isLoading: false
       });
       infoViewActionsContext.fetchSuccess();
     } catch (error) {
       setJWTAuthData({
         ...firebaseData,
         isAuthenticated: false,
-        isLoading: false,
+        isLoading: false
       });
       infoViewActionsContext.fetchError("Something went wrong");
     }
   };
 
-  const signUpUser = async ({
-    name,
-    email,
-    password,
-  }: {
-    name: string;
-    email: string;
-    password: string;
-  }) => {
+  const signUpUser = async ({ name, email, password }: { name: string; email: string; password: string }) => {
     infoViewActionsContext.fetchStart();
     try {
       const { data } = await jwtAxios.post("users", { name, email, password });
@@ -143,14 +121,14 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
       setJWTAuthData({
         user: res.data,
         isAuthenticated: true,
-        isLoading: false,
+        isLoading: false
       });
       infoViewActionsContext.fetchSuccess();
     } catch (error) {
       setJWTAuthData({
         ...firebaseData,
         isAuthenticated: false,
-        isLoading: false,
+        isLoading: false
       });
       infoViewActionsContext.fetchError("Something went wrong");
     }
@@ -162,21 +140,21 @@ const JWTAuthAuthProvider: React.FC<JWTAuthAuthProviderProps> = ({
     setJWTAuthData({
       user: null,
       isLoading: false,
-      isAuthenticated: false,
+      isAuthenticated: false
     });
   };
 
   return (
     <JWTAuthContext.Provider
       value={{
-        ...firebaseData,
+        ...firebaseData
       }}
     >
       <JWTAuthActionsContext.Provider
         value={{
           signUpUser,
           signInUser,
-          logout,
+          logout
         }}
       >
         {children}

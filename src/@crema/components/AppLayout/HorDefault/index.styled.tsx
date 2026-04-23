@@ -1,32 +1,32 @@
-import AppScrollbar from '../../AppScrollbar';
-import {Alert, Drawer, Input, Layout} from 'antd';
-import styled from 'styled-components';
-import AppHorizontalNav from '../components/AppHorizontalNav';
-import MainSidebar from '../components/MainSidebar';
+import AppScrollbar from "../../AppScrollbar";
+import { Alert, Drawer, Input, Layout } from "antd";
+import styled from "styled-components";
+import AppHorizontalNav from "../components/AppHorizontalNav";
+import MainSidebar from "../components/MainSidebar";
 
-const {Header} = Layout;
-const {Search} = Input;
+const { Header } = Layout;
+const { Search } = Input;
 
 export const StyledAppHeaderHor = styled(Header)`
-  color: ${({theme}) => theme.palette.text.primary} !important;
+  color: ${({ theme }) => theme.palette.text.primary} !important;
   box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   width: 100% !important;
   height: auto !important;
   line-height: 1 !important;
   padding: 0;
   padding-inline: 0 !important;
-  background-color: ${({theme}) => theme.palette.background.paper} !important;
+  background-color: ${({ theme }) => theme.palette.background.paper} !important;
 
   & .trigger {
     font-size: 24px;
     margin-right: 20px;
     padding: 5.5px;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       display: none;
     }
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 0;
       margin-left: 20px;
     }
@@ -35,14 +35,14 @@ export const StyledAppHeaderHor = styled(Header)`
 
 export const StyledHeaderHorMain = styled.div`
   position: relative;
-  background-color: ${({theme}) => theme.palette.background.paper};
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+  background-color: ${({ theme }) => theme.palette.background.paper};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
   min-height: 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     min-height: 71px;
   }
 
@@ -51,15 +51,15 @@ export const StyledHeaderHorMain = styled.div`
     background-color: transparent;
     min-height: auto;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       padding-left: 12px;
       padding-right: 12px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
       padding-left: 20px;
 
-      [dir='rtl'] & {
+      [dir="rtl"] & {
         padding-left: 0;
         padding-right: 20px;
       }
@@ -70,7 +70,7 @@ export const StyledHeaderHorMain = styled.div`
     display: none;
     padding-right: 0;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       display: flex;
       flex-direction: column;
     }
@@ -78,7 +78,7 @@ export const StyledHeaderHorMain = styled.div`
 
   & .cr-user-name {
     font-size: 15px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
     line-height: 1.5;
   }
 
@@ -99,11 +99,11 @@ export const StyledContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl}px) {
     max-width: 1140px;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     max-width: 1440px;
   }
 
@@ -124,16 +124,16 @@ export const StyledHeaderSearchHor = styled(Search)`
   margin-left: auto;
   margin-right: 10px;
 
-  [dir='rtl'] & {
+  [dir="rtl"] & {
     margin-left: 10px;
     margin-right: auto;
   }
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     margin-right: 20px;
     max-width: 165px;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: auto;
       margin-left: 20px;
     }
@@ -146,7 +146,7 @@ export const StyledHeaderSearchHor = styled(Search)`
     position: absolute;
     transform: translateY(-50%);
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       right: auto;
       left: 0;
     }
@@ -162,7 +162,7 @@ export const StyledHeaderSearchHor = styled(Search)`
       width: 135px;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.sm}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
       width: 129px;
 
       &:focus {
@@ -181,19 +181,15 @@ export const StyledHeaderSearchHor = styled(Search)`
     }
   }
 
-  &.ant-input-search-rtl
-    > .ant-input-group
-    > .ant-input-group-addon:last-child
-    .ant-input-search-button {
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base} 0 0
-      ${({theme}) => theme.sizes.borderRadius.base};
+  &.ant-input-search-rtl > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button {
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base} 0 0 ${({ theme }) => theme.sizes.borderRadius.base};
   }
 `;
 
 export const StyledAppHeaderHorDesktop = styled.div`
   display: none;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: flex;
     align-items: center;
   }
@@ -202,13 +198,13 @@ export const StyledAppHeaderHorDesktop = styled.div`
 export const StyledHeaderHorMobile = styled.div`
   display: block;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.md}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     display: none;
   }
 
   & .ant-dropdown-link {
     font-size: 24px;
-    color: ${({theme}) => theme.palette.text.primary};
+    color: ${({ theme }) => theme.palette.text.primary};
 
     & svg {
       display: block;
@@ -220,9 +216,9 @@ export const StyledHeaderNavHor = styled.div`
   display: none;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     display: block;
   }
 `;
@@ -235,7 +231,7 @@ export const StyledAppHorizontalNav = styled(AppHorizontalNav)`
   &.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
   &.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     padding: 0 10px;
-    border-radius: ${({theme}) => theme.sizes.borderRadius.base};
+    border-radius: ${({ theme }) => theme.sizes.borderRadius.base};
   }
 
   & .ant-menu-submenu .ant-menu-submenu-title {
@@ -287,7 +283,7 @@ export const StyledAppHorDrawer = styled(Drawer)`
 export const StyledAppSidebarHorScrollbar = styled(AppScrollbar)`
   height: calc(100vh - 56px) !important;
 
-  @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}px) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}px) {
     height: calc(100vh - 71px) !important;
   }
 `;
@@ -299,18 +295,18 @@ export const StyledHorMainSidebar = styled(MainSidebar)`
     min-width: 0 !important;
     width: 17.5rem !important;
     transition: all 0.1s linear;
-    background-color: ${({theme}) => theme.sidebar.light.sidebarBgColor};
-    color: ${({theme}) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.sidebar.light.sidebarBgColor};
+    color: ${({ theme }) => theme.palette.text.primary};
     position: fixed;
     left: 0;
     top: 0;
 
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       left: auto;
       right: 0;
     }
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 17.5rem !important;
     }
   }
@@ -328,7 +324,7 @@ export const StyledHorMainSidebar = styled(MainSidebar)`
     width: 0 !important;
     transition: all 200ms linear;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
       width: 4rem !important;
     }
 
@@ -336,7 +332,7 @@ export const StyledHorMainSidebar = styled(MainSidebar)`
       width: 100% !important;
       transition: all 200ms linear;
 
-      @media screen and (min-width: ${({theme}) => theme.breakpoints.lg}px) {
+      @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
         width: calc(100% - 4rem) !important;
       }
     }
@@ -370,7 +366,7 @@ export const StyledHorMainSidebar = styled(MainSidebar)`
     position: relative;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -406,7 +402,7 @@ export const StyledAppLayoutHorMain = styled(Layout)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${({theme}) => theme.palette.background.default} !important;
+  background-color: ${({ theme }) => theme.palette.background.default} !important;
 
   & .ant-layout-content {
     background-color: transparent;
@@ -429,7 +425,7 @@ export const StyledAppLayoutHor = styled(Layout)`
     position: fixed;
     top: 205px;
 
-    @media screen and (min-width: ${({theme}) => theme.breakpoints.xxl}) {
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xxl}) {
       top: 225px;
     }
   }
@@ -451,10 +447,10 @@ export const StyledHeaderAlert = styled(Alert)`
   text-align: center;
   border: 0 none;
   border-radius: 0;
-  border-bottom: 1px solid ${({theme}) => theme.palette.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.borderColor};
   padding: 10.6px 20px;
-  background-color: ${({theme}) => theme.palette.background.default};
-  color: ${({theme}) => theme.palette.text.primary};
+  background-color: ${({ theme }) => theme.palette.background.default};
+  color: ${({ theme }) => theme.palette.text.primary};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -464,7 +460,7 @@ export const StyledHeaderAlert = styled(Alert)`
   }
 
   & .ant-alert-close-icon {
-    [dir='rtl'] & {
+    [dir="rtl"] & {
       margin-right: 8px;
       margin-left: 8px;
     }

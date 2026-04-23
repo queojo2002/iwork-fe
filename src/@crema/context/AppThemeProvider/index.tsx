@@ -28,7 +28,7 @@ const AppThemeProvider: React.FC<AppThemeProviderProps> = (props) => {
         // direction={direction}
         locale={antLocale}
         theme={{
-          token: getAntTheme(theme),
+          token: getAntTheme(theme)
         }}
       >
         {props.children}

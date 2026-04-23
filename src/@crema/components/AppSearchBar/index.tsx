@@ -1,5 +1,5 @@
-import React from 'react';
-import {Input} from 'antd';
+import React from "react";
+import { Input } from "antd";
 
 type AppSearchProps = {
   iconPosition?: string;
@@ -12,16 +12,9 @@ type AppSearchProps = {
 };
 
 const AppSearch: React.FC<AppSearchProps> = () => {
-  const {Search} = Input;
+  const { Search } = Input;
   const onSearch = (value: any) => console.log(value);
-  return (
-    <Search
-      placeholder='input search text'
-      allowClear
-      onSearch={onSearch}
-      style={{width: 200}}
-    />
-  );
+  return <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />;
 };
 
 export default AppSearch;
