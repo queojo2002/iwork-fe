@@ -45,7 +45,7 @@ const AppVerticalNav: React.FC<Props> = ({ routesConfig }) => {
 
   return (
     <StyledVerticalNav
-      theme={sidebarColorSet}
+      theme={(sidebarColorSet?.mode ?? 'light') as 'light' | 'dark'}
       color={sidebarColorSet?.sidebarMenuSelectedTextColor}
       // bgcolor={sidebarColorSet?.sidebarMenuSelectedBgColor}
       mode="inline"

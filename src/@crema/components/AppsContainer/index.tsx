@@ -29,7 +29,6 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
   sidebarContent,
   fullView,
   children,
-  type,
   cardStyle,
 }) => {
   const [isAppDrawerOpen, setAppDrawerOpen] = useState(false);
@@ -47,28 +46,33 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
             <MenuOutlined className="menu-btn-icon" />
           </StyledMenuBtn>
         )}
-        <AnimatePresence style={{ zIndex: 3, overflow: "hidden" }} type="scale">
-          <motion.h2 className="text-truncate" key="title">
-            {title}
-          </motion.h2>
-        </AnimatePresence>
+        {/* AnimatePresence does not accept style/type props — wrap in a div instead */}
+        <div style={{ zIndex: 3, overflow: "hidden" }}>
+          <AnimatePresence>
+            <motion.h2 className="text-truncate" key="title">
+              {title}
+            </motion.h2>
+          </AnimatePresence>
+        </div>
       </StyledAppWrapHeader>
 
       <StyledAppContainer>
         {sidebarContent ? (
-          <AnimatePresence style={{ zIndex: 3 }} type={type ? type : "left"}>
-            <motion.div>
-              <AppSidebar
-                isAppDrawerOpen={isAppDrawerOpen}
-                setAppDrawerOpen={setAppDrawerOpen}
-                footer={footer}
-                fullView={fullView}
-                navStyle={navStyle}
-                sidebarContent={sidebarContent}
-                key="sidebar"
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div style={{ zIndex: 3 }}>
+            <AnimatePresence>
+              <motion.div>
+                <AppSidebar
+                  isAppDrawerOpen={isAppDrawerOpen}
+                  setAppDrawerOpen={setAppDrawerOpen}
+                  footer={footer}
+                  fullView={fullView}
+                  navStyle={navStyle}
+                  sidebarContent={sidebarContent}
+                  key="sidebar"
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         ) : null}
         <StyledMainContent
           className={clsx({
@@ -87,23 +91,22 @@ const AppsContainer: React.FC<AppsContainerProps> = ({
               {children}
             </StyledMainContentCard>
           ) : (
-            <AnimatePresence
-              type={type ? type : "right"}
-              style={{ minHeight: "100%" }}
-            >
-              <motion.div>
-                <StyledMainContentCard
-                  bordered={false}
-                  key="content"
-                  style={{
-                    ...cardStyle,
-                    borderRadius: 16,
-                  }}
-                >
-                  {children}
-                </StyledMainContentCard>
-              </motion.div>
-            </AnimatePresence>
+            <div style={{ minHeight: "100%" }}>
+              <AnimatePresence>
+                <motion.div>
+                  <StyledMainContentCard
+                    bordered={false}
+                    key="content"
+                    style={{
+                      ...cardStyle,
+                      borderRadius: 16,
+                    }}
+                  >
+                    {children}
+                  </StyledMainContentCard>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           )}
 
           <AppInfoView />

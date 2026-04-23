@@ -1,33 +1,39 @@
-import React from 'react';
-// import '../../../src/types/velocity-react.d';
-// import { VelocityTransitionGroup } from 'velocity-react';
-// import 'velocity-animate/velocity.ui';
-
-// const enterAnimationDefaults = {
-//   animation: 'transition.fadeIn',
-//   stagger: 50,
-//   duration: 200,
-//   display: null,
-//   visibility: 'visible',
-//   delay: 0,
-// };
-
-// const leaveAnimationDefaults = {
-//   animation: 'transition.slideUpOut',
-//   backwards: 150,
-//   duration: 200,
-//   display: null,
-//   visibility: 'visible',
-//   delay: 0,
-// };
+import React, { CSSProperties } from 'react';
 
 type AppAnimateGroupProps = {
   children: React.ReactNode;
+  // Legacy animation props (kept for API compatibility but not forwarded to DOM)
+  type?: string;
+  animateStyle?: CSSProperties;
+  delay?: number;
+  interval?: number;
+  duration?: number;
+  // Standard HTML div props
+  style?: CSSProperties;
+  className?: string;
   [x: string]: any;
 };
 
-const AppAnimateGroup: React.FC<AppAnimateGroupProps> = (props) => {
-  return <div {...props}>{props.children}</div>;
+const AppAnimateGroup: React.FC<AppAnimateGroupProps> = ({
+  children,
+  // Extract animation-only props so they are NOT forwarded to DOM
+  type: _type,
+  animateStyle,
+  delay: _delay,
+  interval: _interval,
+  duration: _duration,
+  style,
+  ...rest
+}) => {
+  // Merge animateStyle into style so flex/layout hints still apply
+  const mergedStyle: CSSProperties | undefined =
+    animateStyle || style ? { ...animateStyle, ...style } : undefined;
+
+  return (
+    <div style={mergedStyle} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 export default AppAnimateGroup;

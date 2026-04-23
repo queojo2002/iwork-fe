@@ -1,48 +1,11 @@
-// import React, {useEffect} from 'react';
-// import 'react-perfect-scrollbar/dist/css/styles.css';
-// import PerfectScrollbar from 'react-perfect-scrollbar';
-// import {useLocation} from 'react-router-dom';
-//
-// const AppScrollbar = ({children, scrollToTop, className, ...others}) => {
-//   let _scrollBarRef = null;
-//   const {pathname} = useLocation();
-//
-//   useEffect(() => {
-//     if (scrollToTop && _scrollBarRef) {
-//       _scrollBarRef._container.scrollTop = 0;
-//     }
-//   }, [_scrollBarRef, scrollToTop, pathname]);
-//
-//   return (
-//     <PerfectScrollbar
-//       ref={(ref) => {
-//         _scrollBarRef = ref;
-//       }}
-//       {...others}
-//       className={className}>
-//       {children}
-//     </PerfectScrollbar>
-//   );
-// };
-//
-// export default AppScrollbar;
-//
-// AppScrollbar.defaultProps = {
-//   className: '',
-//   scrollToTop: true,
-// };
-//
-// AppScrollbar.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   scrollToTop: PropTypes.bool,
-//   className: PropTypes.string,
-// };
 import React, {ReactNode} from 'react';
 import SimpleBarReact from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 import styled from 'styled-components';
 
-export const StyledScrollbar = styled(SimpleBarReact)`
+export const StyledScrollbar = styled(SimpleBarReact).withConfig({
+  shouldForwardProp: (prop) => prop !== 'scrollToTop',
+})`
   position: relative;
   width: 100%;
   height: 100%;
@@ -66,9 +29,10 @@ type AppScrollbarProps = {
   [x: string]: any;
 };
 
-const AppScrollbar: React.FC<AppScrollbarProps> = ({
+const AppScrollbarBase: React.FC<AppScrollbarProps> = ({
   children,
   className,
+  scrollToTop: _scrollToTop, // consumed here, not forwarded to DOM
   ...others
 }) => {
   return (
@@ -77,5 +41,9 @@ const AppScrollbar: React.FC<AppScrollbarProps> = ({
     </StyledScrollbar>
   );
 };
+
+const AppScrollbar = styled(AppScrollbarBase).withConfig({
+  shouldForwardProp: (prop) => prop !== 'scrollToTop',
+})``;
 
 export default AppScrollbar;

@@ -1,7 +1,9 @@
 import { Menu } from "antd";
 import styled from "styled-components";
 
-export const StyledVerticalNav = styled(Menu)`
+export const StyledVerticalNav = styled(Menu).withConfig({
+  shouldForwardProp: (prop) => prop !== 'bgcolor',
+})`
   padding-top: 8px;
   padding-bottom: 8px;
   & .ant-menu-submenu-title:active,

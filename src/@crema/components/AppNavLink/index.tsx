@@ -1,26 +1,27 @@
-import React, {Ref} from 'react';
-import {NavLink} from 'react-router-dom';
+import React, { Ref } from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 
-type AppNavLinkProps = {
-  activeClassName: string;
-  className: string;
-
-  [x: string]: any;
+// Extend NavLinkProps to add optional activeClassName support
+type AppNavLinkProps = Omit<NavLinkProps, 'className'> & {
+  activeClassName?: string;
+  className?: string;
 };
-const AppNavLink = React.forwardRef(const AppNavLink=(
-  {activeClassName, className, ...rest}: AppNavLinkProps,
-  ref: Ref<HTMLAnchorElement>,
-)=> {
-  return (
-    <NavLink
-      ref={ref}
-      to={rest.to}
-      {...rest}
-      className={({isActive}) =>
-        isActive ? `${activeClassName} ${className}` : className
-      }
-    />
-  );
-});
+
+const AppNavLink = React.forwardRef<HTMLAnchorElement, AppNavLinkProps>(
+  ({ activeClassName = '', className, ...rest }, ref) => {
+    return (
+      <NavLink
+        ref={ref}
+        {...rest}
+        className={({ isActive }) => {
+          const base = className ?? '';
+          return isActive ? `${activeClassName} ${base}`.trim() : base;
+        }}
+      />
+    );
+  },
+);
+
+AppNavLink.displayName = 'AppNavLink';
 
 export default AppNavLink;
